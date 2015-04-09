@@ -1,12 +1,12 @@
 #! /usr/bin/env node
 
 var FeedParser = require('feedparser'); // to parse feeds
-// var Feed = require('feed'); // to write feeds
+// var Feed = require('feed'); // to write feeds (but not necessary to require here because we should get a Feed object from app.js -- which seems wrong)
 var async = require('async');
-var request = require('request'); //let's abstract this so that we can switch it out (e.g., to fs.readFile )
+var request = require('request'); // TODO let's abstract this so that we can switch it out (e.g., to fs.readFile )
 
-exports.feedmerger = function (feedsArray, feedObject) {
-  // some error handling; checking the arguments etc.
+exports.feedmerger = function (feedsArray, feedObject, mergedCallback) {
+  // TODO some error handling; checking the arguments etc.
 
   var getFeed = function (feed, callback) {
     var req = request(feed);
@@ -35,7 +35,7 @@ exports.feedmerger = function (feedsArray, feedObject) {
         var itemLink = item.link;
         var itemDescription = item.description;
         var itemDate = item.date;
-        var itemAuthor = item.author;
+        var itemAuthor = item.author.name;
         feedObject.addItem({
           title: itemTitle,
           link: itemLink,
@@ -55,12 +55,12 @@ exports.feedmerger = function (feedsArray, feedObject) {
     if (err) {
       throw err;
     }
-    feedObject.items.sort(function (a, b) { //fort by date for prettiness
+    feedObject.items.sort(function (a, b) { //sort by date for creating pages later
       return b.date - a.date;
     });
-//    console.log("feedmerger completed!");
-    console.log(feedObject  .render('atom-1.0'));
-//    return feedObject;
+   console.log("feedmerger completed!");
+//     console.log(feedObject.render('atom-1.0'));
+   return mergedCallback(null,feedObject);
   });
 };
 
