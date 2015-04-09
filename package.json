@@ -1,0 +1,33 @@
+{
+  "name": "boolesrings-frontpage",
+  "version": "0.0.1",
+  "description": "Building boolesrings.org via node.js",
+  "keywords": [
+    "blog",
+    "math",
+    "feed",
+    "planet"
+  ],
+  "maintainers": [
+    "Samuel Coskey",
+    "Peter Krautzberger"
+  ],
+  "bugs": {
+    "url": "https://github.com/boolesrings/boolesrings-frontpage"
+  },
+  "license": {
+    "type": "MIT",
+    "url": "https://github.com/boolesrings/boolesrings-frontpage/blob/master/LICENSE"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/boolesrings/boolesrings-frontpage.git"
+  },
+  "dependencies": {
+    "async": "^0.9.0",
+    "feed": "^0.2.6",
+    "feedparser": "^1.0.1",
+    "request": "^2.55.0"
+  },
+  "main": "app.js"
+}
