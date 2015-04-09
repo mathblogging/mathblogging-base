@@ -1,7 +1,8 @@
 #! /usr/bin/env node
 
 var Feed = require('feed'); // to creates feed objects and writes them out
-var feedmerger1 = new require('./feedmerger.js').feedmerger; 
+var feedmerger = new require('./feedmerger.js').feedmerger; 
+var async = require('async');
 
 var theFeeds = ['http://boolesrings.org/scoskey/feed/', 
 //             'http://boolesrings.org/matsguru/feed/',
@@ -28,16 +29,12 @@ var theFeed = new Feed({
   image: 'http://boolesrings.org/logo.png',
   copyright: "Copyright © 2015 by the respective authors",
   author: {
-  name: "Booles' Rings",
+  name: "Booles' Rings Authors",
   email: 'info@boolesrings.org',
   link: 'https://boolesrings.org'
   }
   });
 
-feedmerger1(theFeeds,theFeed);
-
-
-var feedmerger2 = new require('./feedmerger.js').feedmerger; 
 
 var theCommentFeeds = ['http://boolesrings.org/scoskey/comments/feed/', 
 //             'http://boolesrings.org/matsguru/comments/feed/',
@@ -55,21 +52,54 @@ var theCommentFeeds = ['http://boolesrings.org/scoskey/comments/feed/',
 //             'http://logic.dorais.org/comments/feed/',
 //             'http://boolesrings.org/krautzberger/comments/feed/',
 //             'http://boolesrings.org/vatter/comments/feed/',
-             'http://m6c.org/w/blog/comments/feed/'
+             'http://m6c.org/w/comments/feed/'
              ];
 
 
-var theCommentsFeed = new Feed({
+var theCommentFeed = new Feed({
   title: "Booles' Rings Comments",
   description: 'Researchers. Connecting.',
   link: 'http://boolesrings.org/',
   image: 'http://boolesrings.org/logo.png',
   copyright: "Copyright © 2015 by the respective authors",
   author: {
-  name: "Booles' Rings Comments",
+  name: "Booles' Rings Commenters",
   email: 'info@boolesrings.org',
   link: 'https://boolesrings.org'
   }
   });
 
-feedmerger2(theCommentFeeds,theCommentsFeed);
+var theOutput = '# Booles\' Rings Home\n';
+
+var addEntries = function (resultFeed){
+//   console.log(resultFeed.title);
+  var newPart = '\n## '+ resultFeed.title + '\n\n';
+  for (var i in resultFeed.items){
+    var item = resultFeed.items[i];
+//     console.log(item.title);
+    newPart += '* ' + '**' + item.author + '**' + ' ' + item.title + '\n';
+  }
+  return newPart;
+};
+
+var doTheRest = function(results) {
+   console.log(results.one.render('atom-1.0'));
+//    console.log(results.two.render('atom-1.0'));
+   theOutput += addEntries(results.one);
+   theOutput += addEntries(results.two);
+   console.log(theOutput);
+//   build out markdown now!
+  };
+
+async.parallel({
+    one: function(callback){
+        feedmerger(theFeeds,theFeed,callback)
+    },
+    two: function(callback){
+      feedmerger(theCommentFeeds,theCommentFeed,callback)
+    }
+},
+function(err, results) {
+  doTheRest(results);
+    // results is now equals to: {one: 1, two: 2}
+});
