@@ -12,7 +12,7 @@ exports.feedmerger = function (feedsArray, feedObject, mergedCallback) {
     var req = request(feed);
     var feedparser = new FeedParser();
     req.on('error', function (error) {
-      console.log(error);
+      console.error(error);
     });
     req.on('response', function (res) {
       var stream = this;
@@ -23,7 +23,7 @@ exports.feedmerger = function (feedsArray, feedObject, mergedCallback) {
       stream.pipe(feedparser);
     });
     feedparser.on('error', function (error) {
-      console.log(error);
+      console.error(error);
     });
     feedparser.on('readable', function () {
       // This is where the action is!
@@ -35,7 +35,8 @@ exports.feedmerger = function (feedsArray, feedObject, mergedCallback) {
         var itemLink = item.link;
         var itemDescription = item.description;
         var itemDate = item.date;
-        var itemAuthor = item.author.name;
+        var itemAuthor = item.author;
+//        console.error(typeof itemAuthor);
         feedObject.addItem({
           title: itemTitle,
           link: itemLink,
@@ -50,7 +51,7 @@ exports.feedmerger = function (feedsArray, feedObject, mergedCallback) {
     });
   };
 
-  console.log(feedsArray);
+//  console.log(feedsArray);
   async.each(feedsArray, getFeed, function (err) {
     if (err) {
       throw err;
@@ -58,7 +59,7 @@ exports.feedmerger = function (feedsArray, feedObject, mergedCallback) {
     feedObject.items.sort(function (a, b) { //sort by date for creating pages later
       return b.date - a.date;
     });
-   console.log("feedmerger completed!");
+//   console.log("feedmerger completed!");
 //     console.log(feedObject.render('atom-1.0'));
    return mergedCallback(null,feedObject);
   });
