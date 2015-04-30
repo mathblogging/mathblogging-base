@@ -27,7 +27,7 @@ var theFeeds = [
   ];
 
 var theFeed = new Feed({
-  title: "Booles' Rings",
+  title: "Booles' Rings Posts",
   description: 'Researchers. Connecting.',
   link: 'http://boolesrings.org/',
   image: 'http://boolesrings.org/logo.png',
@@ -77,8 +77,8 @@ var theCommentFeed = new Feed({
 var theOutput = '---\n' +
     'layout: page\n' +
     'title: Booles\' Rings\n' +
-    '---\n\n' +
-    '# Booles\' Rings Home\n\n'
+    '---\n\n' // +
+    // '# Booles\' Rings Home\n\n'  // not needed because of jekyll title
     ;
 
 var addEntries = function (resultFeed){
@@ -88,7 +88,7 @@ var addEntries = function (resultFeed){
     if (i>9) {break;}
     var item = resultFeed.items[i];
 //     console.log(item.title);
-    newPart += '* ' + '**' + escapeMD(item.author) + '**' + ' ' + escapeMD(item.title) + '\n';
+    newPart += '* ' + '**' + escapeMD(item.author) + '**' + ' [' + escapeMD(item.title) + '](' + item.link + ')\n';
   }
   return newPart;
 };

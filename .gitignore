@@ -1,6 +1,12 @@
+# Generated site (for now)
+boolesrings.org
+
 # Logs
 logs
 *.log
+
+# emacs backups
+*~
 
 # Runtime data
 pids
