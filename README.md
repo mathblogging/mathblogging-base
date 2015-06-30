@@ -1,2 +1,3 @@
-# boolesrings-frontpage
-A repo for boolesrings.org
+# mathblogging-base
+
+A new base for mathblogging.org

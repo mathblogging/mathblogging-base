@@ -1,7 +1,7 @@
 {
-  "name": "boolesrings-frontpage",
+  "name": "mathblogging-base",
   "version": "0.0.1",
-  "description": "Building boolesrings.org via node.js",
+  "description": "Building mathblogging.org",
   "keywords": [
     "blog",
     "math",
@@ -13,15 +13,15 @@
     "Peter Krautzberger"
   ],
   "bugs": {
-    "url": "https://github.com/boolesrings/boolesrings-frontpage"
+    "url": "https://github.com/boolesrings/mathblogging-base"
   },
   "license": {
     "type": "MIT",
-    "url": "https://github.com/boolesrings/boolesrings-frontpage/blob/master/LICENSE"
+    "url": "https://github.com/mathblogging/mathblogging-base/blob/master/LICENSE"
   },
   "repository": {
     "type": "git",
-    "url": "git://github.com/boolesrings/boolesrings-frontpage.git"
+    "url": "git://github.com/mathblogging/mathblogging-base.git"
   },
   "dependencies": {
     "async": "^0.9.0",
