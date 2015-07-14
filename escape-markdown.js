@@ -1,6 +1,7 @@
-#! /usr/bin/env node
+/* eslint-env node */
 
 exports.escapeMarkdown = function (string) {
-  var newString = string.replace('|','\\|');
+  'use strict';
+  var newString = string.replace('|', '\\|');
   return newString;
 };
