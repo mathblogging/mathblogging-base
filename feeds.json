@@ -1,0 +1,34 @@
+{
+  "blogs":[
+    {
+      "title": "Sam Coskey",
+      "feedURL": "http://boolesrings.org/scoskey/feed/",
+      "type": "rss",
+      "homeURL": "http://boolesrings.org/scoskey/",
+      "category": [
+        {
+          "title": "Research"
+        },
+        {
+          "title": "Journalism"
+        }
+      ],
+      "ttl": 0
+    },
+    {
+      "title": "Peter Krautzberger",
+      "feedURL": "http://www.peterkrautzberger.org/atom.xml",
+      "type": "atom",
+      "homeURL": "http://www.peterkrautzberger.org",
+      "category": [
+        {
+          "title": "Research"
+        },
+        {
+          "title": "Web"
+        }
+        ],
+        "ttl": 0
+    }
+  ]
+}
