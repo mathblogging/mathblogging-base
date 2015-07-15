@@ -2,9 +2,9 @@
 
 var fs = require('fs');
 // var async = require('async'); // asyncjs for async stuff
-var feedCreator = require('feed'); // to create feed objects and
+var FeedCreator = require('feed'); // to create feed objects and
 var feedmerger = require('./feedmerger.js').feedmerger;
-// var pagewriter = require('./pagewriter.js').pagewriter;
+var pagewriter = require('./pagewriter.js').pagewriter;
 var jspath = require('jspath');
 
 var FeedsJson = {};
@@ -54,7 +54,7 @@ for (var j = 0; j < catFeedsJson.length; j++){
   var catFeedURLs = jspath.apply('.blogs.title', catFeedJson);
   catFeedURLs = catFeedURLs.map(titleToFilenameHelper);
   console.log(catFeedURLs);
-  var catFeed = new feedCreator({
+  var catFeed = new FeedCreator({
     title: 'Mathblogging.org -- ' + category,
     description: 'Your one stop shop for mathematical blogs',
     link: 'http://mathblogging.org/',
@@ -66,7 +66,7 @@ for (var j = 0; j < catFeedsJson.length; j++){
       link: 'https://mathblogging.org'
     }
   });
-  feedmerger(catFeedURLs, catFeed, function(err, mergedFeed){ console.log('Hello' + mergedFeed.render('atom-1.0')); });
+  feedmerger(catFeedURLs, catFeed, pagewriter.bind(null, category));
 }
   //testing jspath
   // var scat = 'Journalism';
