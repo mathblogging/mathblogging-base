@@ -41,7 +41,7 @@ exports.feedmerger = function(feedsJson, feedObject, mergedCallback) {
         var itemLink = item.link;
         var itemDescription = item.description;
         var itemDate = item.date;
-        var itemAuthor = [{ name: item.author.toString(), email: '', link: ''}];//TODO handle multiple authors??? npm/feed supports that
+        var itemAuthor = [{ name: stream.meta.title, email: '', link: ''}];//TODO used to be item.author.toString() for name -- should we combine title and author name? Should we handle multiple authors??? npm/feed supports multiple authors
         feedObject.addItem({
           title: itemTitle,
           link: itemLink,
@@ -66,7 +66,7 @@ exports.feedmerger = function(feedsJson, feedObject, mergedCallback) {
     });
     //   console.log("feedmerger completed!");
     //     console.log(feedObject.render('atom-1.0'));
-    return mergedCallback(null, feedObject);
+    return mergedCallback(feedObject);
   });
 };
 
