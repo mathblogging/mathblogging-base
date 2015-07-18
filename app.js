@@ -1,11 +1,13 @@
 /* eslint-env node */
 
 var fs = require('fs');
+var jspath = require('jspath');
 // var async = require('async'); // asyncjs for async stuff
 var FeedCreator = require('feed'); // to create feed objects and
 var feedmerger = require('./feedmerger.js').feedmerger;
 var pagewriter = require('./pagewriter.js').pagewriter;
-var jspath = require('jspath');
+var editorpicks = require('./editors.js');
+editorpicks();
 
 var FeedsJson = {};
 // var Feeds = {};
@@ -59,7 +61,7 @@ for (var j = 0; j < catFeedsJson.length; j++){
     description: 'Your one stop shop for mathematical blogs',
     link: 'http://mathblogging.org/',
     image: 'http://mathblogging.org/logo.png',
-    copyright: 'Copyright © 2015 by the respective authors',
+    copyright: 'No copyright asserted over individual posts; see original posts for copyright and/or licensing.',
     author: {
       name: 'Mathblogging.org',
       email: 'info@mathblogging.org',
