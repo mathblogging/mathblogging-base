@@ -15,13 +15,14 @@ exports.pagewriter = function(cat, jsonFeed) {
 
   var theOutput = '---\n' +
     'layout: page\n' +
-    'title: Mathblogging.org | Category: "' + category + '"\n' +
+    'title: ' + category + '\n' +
     '---\n\n' // +
   ;
 
   var addEntries = function(resultFeed) {
     //   console.log(resultFeed.title);
-    var newPart = '\n## ' + resultFeed.title + '\n\n';
+    // var newPart = '\n## ' + resultFeed.title + '\n\n';
+    var newPart = '';
     for (var i in resultFeed.items) {
       if (i > 9) {
         break;
@@ -30,17 +31,17 @@ exports.pagewriter = function(cat, jsonFeed) {
       //     console.log(item.title);
       newPart += '* ' + '**' + escapeMD(item.author[0].name) + '**' + ' [' + escapeMD(item.title) + '](' + item.link + ')\n';
     }
+    newPart += '\n';
+    newPart += '[Grab the feed for ' + cat + ' blogs!](' + cat + '.xml)\n';
     return newPart;
   };
 
-  var doTheRest = function(feed) {
-    theOutput += addEntries(feed);
-    fs.writeFile('./mathblogging.org/' + category + '.md', theOutput);
-    //   build out markdown now!
-  };
+  theOutput += addEntries(theFeed);
+  fs.writeFile('./mathblogging.org/' + category + '.md', theOutput);
+  //   build out markdown now!
 
-  doTheRest(theFeed);
-  // console.log(theFeed.render('atom-1.0'));
+  fs.writeFile('./mathblogging.org/' + cat + '.xml', theFeed.render('atom-1.0'));
+
   return true;
   //end module
 };
