@@ -2,8 +2,9 @@
 var fs = require('fs');
 var Twit = require('twit');
 var FeedCreator = require('feed'); // to create feed objects and
-var escapeMD = require('./escape-markdown.js').escapeMarkdown; // our module
-var Autolinker = require('autolinker');
+// var escapeMD = require('./escape-markdown.js').escapeMarkdown; // our module
+// var Autolinker = require('autolinker');
+var async = require('async');
 
 // set up secrets
 var fileName = './secret-config.json';
@@ -11,8 +12,7 @@ var config = {};
 
 try {
   config = require(fileName);
-}
-catch (err) {
+} catch (err) {
   config = {};
   console.log('unable to read file ' + fileName + ': ', err);
   console.log('see secret-config-sample.json for an example');
@@ -42,6 +42,23 @@ module.exports = function() {
     '---\n\n' +
     '## Editor\'s picks\n\n';
 
+
+  var getEmbed = function(tweetId, callback) {
+    T.get('statuses/oembed', {
+      id: tweetId,
+      hide_thread: true,
+      omit_script: false,
+      align: 'center',
+      maxwidth: '500'
+    }, function(Error, pickData) {
+      // console.log(tweetId);
+      // console.log(pickData.html);
+      editorPage += pickData.html + '\n';
+      callback(Error);
+    });
+  };
+
+
   T.get('search/tweets', {
     q: '#MBPick since:2011-04-14',
     count: 10
@@ -49,26 +66,22 @@ module.exports = function() {
     if (err) {
       throw err;
     }
-    console.log(data);
+    // console.log(JSON.stringify(data));
     var tweets = data.statuses;
+    var tweetIds = [];
     for (var i = 0; i < tweets.length; i++) {
       var tweet = tweets[i];
-      console.log(tweet.user);
+      // console.log(tweet.user);
       var editor = tweet.user.screen_name;
-      var linkedText = tweet.text;
-      // console.log(tweet);
-      // console.log(tweet.retweeted + tweet.favorited);
-      if ( (editors.indexOf(editor) > -1) && (!tweet.favorited) && (!tweet.retweeted)) {
-        // console.log('**' + editor + '**: ' + tweet.text);
-        // console.log(linkedText);TODO tweets have link at end
-        console.log(tweet.text);
-        editorPage += '* ' + '**' + escapeMD(editor) + '\'s pick**: ' + //' [' +
-          linkedText + '\n'; //'](' + tweet.link + ')\n';
-
+      if ((editors.indexOf(editor) > -1) && (!tweet.favorited) && (!tweet.retweeted)) {
+        // console.log(tweet.id_str);
+        tweetIds.push(tweet.id_str);
+        // console.log(tweet.id);
+        // console.log(tweetIds);
         var itemTitle = editor + '\'s pick';
         var itemLink = 'http://mathblogging.org';
         var itemDescription = tweet.text;
-        console.log(tweet.created_at);
+        // console.log(tweet.created_at);
         var itemDate = new Date(tweet.created_at);
         var itemAuthor = [{
           name: 'picked by ' + editor,
@@ -85,7 +98,11 @@ module.exports = function() {
       }
     }
     fs.writeFile('./mathblogging.org/editor-picks.xml', editorFeed.render('atom-1.0'));
-    fs.writeFile('./mathblogging.org/index.md', editorPage);
+    async.each(tweetIds, getEmbed, function(error) {
+      // if (error) {throw error; }
+      fs.writeFile('./mathblogging.org/index.md', editorPage);
+    });
 
   });
+
 };
