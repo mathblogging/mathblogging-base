@@ -18,12 +18,9 @@ catch (err) {
   console.log('see secret-config-sample.json for an example');
 }
 
-console.log('session secret is:', config.sessionSecret);
-
 module.exports = function() {
   'use strict';
   var T = new Twit(config);
-
   var editors = ['MrHonner', 'fawnpnguyen', 'SheckyR', 'danaernst', 'pkrautz'];
 
   var editorFeed = new FeedCreator({
@@ -46,28 +43,29 @@ module.exports = function() {
     '## Editor\'s picks\n\n';
 
   T.get('search/tweets', {
-    q: '#geomchat since:2011-04-14',
-    count: 100
+    q: '#MBPick since:2011-04-14',
+    count: 10
   }, function(err, data) {
     if (err) {
       throw err;
     }
-    // console.log(data);
+    console.log(data);
     var tweets = data.statuses;
     for (var i = 0; i < tweets.length; i++) {
       var tweet = tweets[i];
+      console.log(tweet.user);
       var editor = tweet.user.screen_name;
-      var linkedText = Autolinker.link(escapeMD(tweet.text));
+      var linkedText = tweet.text;
       // console.log(tweet);
-      // console.log(editor);
-      if (editors.indexOf(editor) > -1) {
+      // console.log(tweet.retweeted + tweet.favorited);
+      if ( (editors.indexOf(editor) > -1) && (!tweet.favorited) && (!tweet.retweeted)) {
         // console.log('**' + editor + '**: ' + tweet.text);
         // console.log(linkedText);TODO tweets have link at end
         console.log(tweet.text);
         editorPage += '* ' + '**' + escapeMD(editor) + '\'s pick**: ' + //' [' +
           linkedText + '\n'; //'](' + tweet.link + ')\n';
 
-        var itemTitle = '**' + editor + '\'s pick**';
+        var itemTitle = editor + '\'s pick';
         var itemLink = 'http://mathblogging.org';
         var itemDescription = tweet.text;
         console.log(tweet.created_at);
