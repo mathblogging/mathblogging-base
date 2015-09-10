@@ -1,5 +1,8 @@
 #!/usr/bin/perl
 
+# USAGE
+# ./csv2json.pl < input.csv > output.json
+
 print '{' . "\n";
 print '  "feeds":[' . "\n";
 my $row = <>;
