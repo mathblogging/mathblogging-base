@@ -1,12 +1,12 @@
 /* eslint-env node */
 var fs = require('fs');
 var Twit = require('twit');
-var FeedCreator = require('feed'); // to create feed objects and
+var Feed = require('rss');
 // var escapeMD = require('./escape-markdown.js').escapeMarkdown; // our module
 // var Autolinker = require('autolinker');
 var async = require('async');
 
-// set up secrets
+// set up Twitter app secrets
 var fileName = './secret-config.json';
 var config = {};
 
@@ -20,20 +20,19 @@ try {
 
 module.exports = function() {
   'use strict';
+
   var T = new Twit(config);
+
   var editors = ['MrHonner', 'fawnpnguyen', 'SheckyR', 'danaernst', 'pkrautz'];
 
-  var editorFeed = new FeedCreator({
+  var editorFeed = new Feed({
     title: 'Mathblogging.org -- Editor\'s Picks',
     description: 'Your one stop shop for mathematical blogs',
+    pubDate: new Date(),
     link: 'http://mathblogging.org/',
-    image: 'http://mathblogging.org/logo.png',
+    // image: 'http://mathblogging.org/logo.png',
     copyright: 'No copyright asserted over individual posts; see original posts for copyright and/or licensing.',
-    author: {
-      name: 'Mathblogging.org',
-      email: 'info@mathblogging.org',
-      link: 'https://mathblogging.org'
-    }
+    managingEditor: 'info@mathblogging.org (Mathblogging.org)'
   });
 
   var editorPage = '---\n' +
@@ -42,12 +41,14 @@ module.exports = function() {
     '---\n\n' +
     '## Editor\'s picks\n\n';
 
-
+  // Fetch embedded tweet HTML snippet
   var getEmbed = function(tweetId, callback) {
     T.get('statuses/oembed', {
       id: tweetId,
+      /*eslint-disable */
       hide_thread: true,
       omit_script: false,
+      /*eslint-enable */
       align: 'center',
       maxwidth: '500'
     }, function(Error, pickData) {
@@ -58,51 +59,73 @@ module.exports = function() {
     });
   };
 
+  var tweetIds = [];
 
-  T.get('search/tweets', {
-    q: '#MBPick since:2011-04-14',
-    count: 10
-  }, function(err, data) {
-    if (err) {
-      throw err;
-    }
-    // console.log(JSON.stringify(data));
-    var tweets = data.statuses;
-    var tweetIds = [];
-    for (var i = 0; i < tweets.length; i++) {
-      var tweet = tweets[i];
-      // console.log(tweet.user);
-      var editor = tweet.user.screen_name;
-      if ((editors.indexOf(editor) > -1) && (!tweet.favorited) && (!tweet.retweeted)) {
-        // console.log(tweet.id_str);
-        tweetIds.push(tweet.id_str);
-        // console.log(tweet.id);
-        // console.log(tweetIds);
-        var itemTitle = editor + '\'s pick';
-        var itemLink = 'http://mathblogging.org';
-        var itemDescription = tweet.text;
-        // console.log(tweet.created_at);
-        var itemDate = new Date(tweet.created_at);
-        var itemAuthor = [{
-          name: 'picked by ' + editor,
-          email: '',
-          link: ''
-        }];
-        editorFeed.addItem({
-          title: itemTitle,
-          link: itemLink,
-          description: itemDescription,
-          date: itemDate,
-          author: itemAuthor
+  var getEditor = function(editor, callback) {
+    T.get('statuses/user_timeline', {
+      'screen_name': editor,
+      count: 180
+    }, function(err, tweets) {
+      // console.log(JSON.stringify(data));
+      // filter tweets by filtering their hashtag arrays -- a bit ugly
+      var editorPicks = tweets.filter(function(el) {
+        var filterHash = el.entities.hashtags.filter(function(tag) {
+          return (tag.text === 'mbpick') || (tag.text === 'mbpicks');
         });
+        return (filterHash.length > 0);
+      });
+      for (var i = 0; i < editorPicks.length; i++) {
+        tweetIds.push(editorPicks[i].id_str);
+        var theLink = '';
+        if (editorPicks[i].entities.urls.length > 0) {
+          theLink = editorPicks[i].entities.urls[0].expanded_url;
+        } else {
+          theLink = 'https://twitter.com/' + editor + '/status/' + editorPicks[i].id_str;
+        }
+        var itemOptions = {
+          date: editorPicks[i].created_at,
+          title: '@' + editor + '\'s pick',
+          link: theLink,
+          guid: theLink,
+          description: editorPicks[i].text,
+          author: '@' + editor
+        };
+        console.log(itemOptions);
+        editorFeed.item(itemOptions);
       }
+      callback(err);
+    });
+  };
+  // collect all tweetIds with hashtag
+  async.each(editors, getEditor, function(error) {
+    if (error) {
+      console.log(error);
     }
-    fs.writeFile('./mathblogging.org/editor-picks.xml', editorFeed.render('atom-1.0'));
-    async.each(tweetIds, getEmbed, function(error) {
-      // if (error) {throw error; }
+    console.log(tweetIds);
+    // turn this into a module? used everywhere...
+    editorFeed.items.sort(function(a, b) { //sort by date for creating pages later
+      return b.date - a.date;
+    });
+    var xml = editorFeed.xml({
+      indent: true
+    });
+    fs.writeFile('./mathblogging.org/editors-picks.xml', xml, function(err) {
+      if (err) {
+        console.log('error: couldn\'t write Editors\' Picks Feed');
+        return console.log(err);
+      }
+      console.log('SUCCESS: "Editors\' Feed" was saved!');
+    });
+    // this is stupid...
+    async.each(tweetIds, getEmbed, function(e) {
+      if (e) {
+        console.log(e);
+      }
       fs.writeFile('./mathblogging.org/index.md', editorPage);
+      console.log('SUCCESS: "Editors\' Picks Homepage" was saved!');
     });
 
   });
+
 
 };
