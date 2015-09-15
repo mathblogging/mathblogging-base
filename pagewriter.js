@@ -11,7 +11,7 @@ exports.pagewriter = function(cat, jsonFeed) {
 
   var theFeed = jsonFeed;
   var category = cat;
-  console.log(category);
+  // console.log(category);
 
   var theOutput = '---\n' +
     'layout: page\n' +
@@ -29,7 +29,7 @@ exports.pagewriter = function(cat, jsonFeed) {
       }
       var item = resultFeed.items[i];
       //     console.log(item.title);
-      newPart += '* ' + '**' + escapeMD(item.author[0].name) + '**' + ' [' + escapeMD(item.title) + '](' + item.link + ')\n';
+      newPart += '* ' + '**' + escapeMD(item.author) + '**' + ' [' + escapeMD(item.title) + '](' + item.link + ')\n';
     }
     newPart += '\n';
     newPart += '[Grab the feed for ' + cat + ' blogs!](' + cat + '.xml)\n';
@@ -40,7 +40,17 @@ exports.pagewriter = function(cat, jsonFeed) {
   fs.writeFile('./mathblogging.org/' + category + '.md', theOutput);
   //   build out markdown now!
 
-  fs.writeFile('./mathblogging.org/' + cat + '.xml', theFeed.render('atom-1.0'));
+  var xml = theFeed.xml({
+    indent: true
+  });
+  fs.writeFile('./mathblogging.org/' + cat + '.xml', xml, function(err) {
+    if (err) {
+      console.log('error: couldn\'t write Feed for Category: ' + cat);
+      return console.log(err);
+    }
+    console.log('SUCCESS: "Feed" was saved for Category: ' + cat);
+  });
+  // fs.writeFile('./mathblogging.org/' + cat + '.xml', theFeed.render('atom-1.0'));
 
   return true;
   //end module
