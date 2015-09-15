@@ -1,34 +1,33 @@
 {
   "blogs":[
     {
-      "title": "Sam Coskey",
-      "feedURL": "http://boolesrings.org/scoskey/feed/",
-      "type": "rss",
-      "homeURL": "http://boolesrings.org/scoskey/",
-      "category": [
-        {
-          "title": "Research"
-        },
-        {
-          "title": "Journalism"
-        }
-      ],
-      "ttl": 0
+      "url": "http://boolesrings.org/scoskey/feed/",
+      "categories": ["Research","Teaching"]
     },
     {
-      "title": "Peter Krautzberger",
-      "feedURL": "http://www.peterkrautzberger.org/atom.xml",
-      "type": "atom",
-      "homeURL": "http://www.peterkrautzberger.org",
-      "category": [
-        {
-          "title": "Research"
-        },
-        {
-          "title": "Web"
-        }
-        ],
-        "ttl": 0
+      "url": "https://www.peterkrautzberger.org/atom.xml",
+      "categories": ["Research","Web"]
+    },
+    {
+      "url": "http://fawnnguyen.com/feed/",
+      "categories": ["Education","Teaching"]
+    },
+    {
+      "url": "http://danaernst.com/feed/",
+      "categories": ["Research","Education"]
+    },
+    {
+      "url": "http://mrhonner.com/feed/",
+      "categories": ["Education","Teaching"]
+    },
+    {
+      "title": "Math-Frolic!",
+      "url": "https://math-frolic.blogspot.com/feeds/posts/default",
+      "categories": ["Recreational","Journalistic"]
+    },
+    {
+      "url": "http://aperiodical.com/feed/",
+      "categories": ["Journalistic","Recreational"]
     }
   ]
 }
