@@ -28,8 +28,8 @@ exports.pagewriter = function(cat, jsonFeed) {
         break;
       }
       var item = resultFeed.items[i];
-      //     console.log(item.title);
-      newPart += '* ' + '**' + escapeMD(item.author) + '**' + ' [' + escapeMD(item.title) + '](' + item.link + ')\n';
+      // console.log(JSON.stringify(item));
+      newPart += '* ' + '**' + escapeMD(item.author) + '**' + ' [' + escapeMD(item.title) + '](' + item.url + ')\n';
     }
     newPart += '\n';
     newPart += '[Grab the feed for ' + cat + ' blogs!](' + cat + '.xml)\n';

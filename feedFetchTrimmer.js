@@ -126,8 +126,8 @@ var feedFetchTrimmer = function(feedUrl) {
       if (cutoff < itemDate) {
         var itemOptions = {
           date: itemDate,
-          title: item.title || null,
-          link: item.link || null,
+          title: item.title,
+          url: item.link,
           description: null, // item.description || null
           author: item.author || null
         };
@@ -144,7 +144,7 @@ var feedFetchTrimmer = function(feedUrl) {
     });
     // console.log(xml);
     var filename = sanitize(feedUrl) + '.xml';
-    console.log(filename);
+    // console.log(filename);
     fs.writeFile('./feeds/' + filename, xml, function(err) {
     if(err) {
       console.log('hello error');

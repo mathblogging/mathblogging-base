@@ -40,7 +40,7 @@ exports.feedmerger = function(feedsJson, feedObject, mergedCallback) {
         var itemOptions = {
           date: item.date,
           title: item.title,
-          link: item.link,
+          url: item.link,
           guid: item.guid || item.permalink || '',
           description: '',
           author: stream.meta.title
