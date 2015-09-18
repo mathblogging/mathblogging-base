@@ -24,9 +24,9 @@ exports.pagewriter = function(cat, jsonFeed) {
     // var newPart = '\n## ' + resultFeed.title + '\n\n';
     var newPart = '';
     for (var i in resultFeed.items) {
-      if (i > 9) {
-        break;
-      }
+      // if (i > 9) {
+      //   break;
+      // }
       var item = resultFeed.items[i];
       // console.log(JSON.stringify(item));
       newPart += '* ' + '**' + escapeMD(item.author) + '**' + ' [' + escapeMD(item.title) + '](' + item.url + ')\n';
