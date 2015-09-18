@@ -37,18 +37,16 @@ exports.feedmerger = function(feedsJson, feedObject, mergedCallback) {
       //    var meta = this.meta; // **NOTE** the "meta" is always available in the context of the feedparser instance
       var item;
       while ( (item = stream.read())) {
-        var itemTitle = item.title;
-        var itemLink = item.link;
-        var itemDescription = item.description;
-        var itemDate = item.date;
-        var itemAuthor = [{ name: stream.meta.title, email: '', link: ''}];//TODO used to be item.author.toString() for name -- should we combine title and author name? Should we handle multiple authors??? npm/feed supports multiple authors
-        feedObject.addItem({
-          title: itemTitle,
-          link: itemLink,
-          description: itemDescription,
-          date: itemDate,
-          author: itemAuthor
-        });
+        var itemOptions = {
+          date: item.date,
+          title: item.title,
+          url: item.link,
+          guid: item.guid || item.permalink || '',
+          description: '',
+          author: stream.meta.title
+        };
+        // console.log(itemOptions);
+        feedObject.item(itemOptions);
       }
     });
     feedparser.on('finish', function() {
