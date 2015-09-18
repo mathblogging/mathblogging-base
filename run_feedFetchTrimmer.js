@@ -1,0 +1,31 @@
+#! /usr/bin/env node
+
+var fs = require('fs');
+// var async = require('async'); // asyncjs for async stuff
+var feedFetchTrimmer = require('./feedFetchTrimmer.js');
+process.setMaxListeners(0);
+fs.readFile('./feeds.json', 'utf8', function(err, data) {
+  'use strict';
+  var FeedsJson = JSON.parse(data);
+  var urls = [];
+  for (var j = 0; j < FeedsJson.blogs.length; j++){
+    urls.push(FeedsJson.blogs[j].url);
+  }
+  console.log(urls);
+  if (err) {
+    throw err;
+  }
+  // Feeds = JSON.parse(data);
+  // var feed = Feeds.some;
+  for (var i = 0; i < urls.length; i++) {
+    process.on('uncaughtException', function(err) {
+      // handle the error safely
+      console.log('uncaught error in ' + urls[i] + ':' + err);
+    });
+    try {
+      feedFetchTrimmer(urls[i]);
+    } catch (error) {
+      console.log(urls[i] + ' has a parsing error' + error);
+    }
+  }
+});
