@@ -1,33 +1,1101 @@
 {
-  "blogs":[
-    {
-      "url": "http://boolesrings.org/scoskey/feed/",
-      "categories": ["Research","Teaching"]
-    },
-    {
-      "url": "https://www.peterkrautzberger.org/atom.xml",
-      "categories": ["Research","Web"]
-    },
-    {
-      "url": "http://fawnnguyen.com/feed/",
-      "categories": ["Education","Teaching"]
-    },
-    {
-      "url": "http://danaernst.com/feed/",
-      "categories": ["Research","Education"]
-    },
-    {
-      "url": "http://mrhonner.com/feed/",
-      "categories": ["Education","Teaching"]
-    },
-    {
-      "title": "Math-Frolic!",
-      "url": "https://math-frolic.blogspot.com/feeds/posts/default",
-      "categories": ["Recreational","Journalistic"]
-    },
-    {
-      "url": "http://aperiodical.com/feed/",
-      "categories": ["Journalistic","Recreational"]
-    }
-  ]
+  "blogs": [{
+    "url": "https://www.peterkrautzberger.org/atom.xml",
+    "categories": ["Math Technology"]
+  }, {
+    "url": "http://boolesrings.org/scoskey/feed",
+    "categories": ["Pure Math Research", "Math Teaching"]
+  }, {
+    "url": "http://feeds.feedburner.com/proofsfromthebook?format=xml",
+    "categories": ["Math Teaching", "Math at School"]
+  }, {
+    "url": "http://feeds.feedburner.com/Hyndsight?format=xml",
+    "categories": ["Applied Math Research"]
+  }, {
+    "url": "http://www.maa.org/news/rss.xml",
+    "categories": ["Math Journalism"]
+  }, {
+    "url": "http://ocw.mit.edu/rss/new/mit-newcourses-18.xml",
+    "categories": ["Math Teaching"]
+  }, {
+    "url": "http://feeds.feedburner.com/PointOfInflection",
+    "categories": ["Math Teaching"]
+  }, {
+    "url": "http://feeds.feedburner.com/mathsways/sBfS",
+    "categories": ["Math Teaching"]
+  }, {
+    "url": "http://yozh.org/feed/",
+    "categories": ["Art and Math", "Visual Math"]
+  }, {
+    "url": "http://feeds.feedburner.com/StatsChat",
+    "categories": ["Applied Math Research"]
+  }, {
+    "url": "http://feeds.feedburner.com/FlippingWithKirch",
+    "categories": ["Math at School", "Math Teaching"]
+  }, {
+    "url": "http://empg.maths.ed.ac.uk/blog/?feed=rss2",
+    "categories": ["Pure Math Research", "Applied Math Research"]
+  }, {
+    "url": "http://feeds.feedburner.com/Mathrecreation",
+    "categories": ["Recreational Math", "Visual Math"]
+  }, {
+    "url": "http://vihart.com/feed/",
+    "categories": ["Art and Math", "Visual Math"]
+  }, {
+    "url": "http://feeds.feedburner.com/AnalysisWithProgramming",
+    "categories": ["Applied Math Research", "Pure Math Research"]
+  }, {
+    "url": "http://feeds.feedburner.com/RealmOfMathematics",
+    "categories": ["Recreational Math", "Art and Math"]
+  }, {
+    "url": "http://feeds.feedburner.com/AprenderMatematica",
+    "categories": ["Math Teaching"]
+  }, {
+    "url": "http://feeds.feedburner.com/minds-on-math",
+    "categories": ["Math Ed Research"]
+  }, {
+    "url": "http://www.mathcoachscorner.com/feed/",
+    "categories": ["Math Teaching"]
+  }, {
+    "url": "http://bactra.org/weblog/index.rss",
+    "categories": ["Applied Math Research"]
+  }, {
+    "url": "http://blogs.ams.org/mathgradblog/feed",
+    "categories": ["Applied Math Research", "Pure Math Research"]
+  }, {
+    "url": "http://www.matrix67.com/blog/feed",
+    "categories": ["Pure Math Research"]
+  }, {
+    "url": "http://errorstatistics.com/feed/",
+    "categories": ["Pure Math Research", "Math Journalism"]
+  }, {
+    "url": "http://emergentmath.com/feed/",
+    "categories": ["Math Teaching", "Math Ed Research"]
+  }, {
+    "url": "http://mathscinotes.com/feed/",
+    "categories": ["Applied Math Research", "Recreational Math"]
+  }, {
+    "url": "http://makezine.com/tag/MathMonday/feed/",
+    "categories": ["Math Journalism", "Recreational Math"]
+  }, {
+    "url": "http://jd2718.org/feed/",
+    "categories": ["Math Teaching", "Administation life"]
+  }, {
+    "url": "http://vknight.org/unpeudemath/feed.xml",
+    "categories": ["Applied Math Research", "Math Teaching"]
+  }, {
+    "url": "http://davidwees.com/feed/",
+    "categories": ["Math Teaching"]
+  }, {
+    "url": "http://mrsblanchet.net/home/feed",
+    "categories": ["Math Teaching", "Math Ed Research"]
+  }, {
+    "url": "http://feeds.feedburner.com/ScienzaEMusica",
+    "categories": ["History of Math", "Art and Math"]
+  }, {
+    "url": "http://feeds.feedburner.com/Exzuberant",
+    "categories": ["Math Teaching"]
+  }, {
+    "url": "http://fawnnguyen.com/feed/",
+    "categories": ["Math Teaching"]
+  }, {
+    "url": "http://feeds.feedburner.com/DocMadhattan",
+    "categories": ["Applied Math Research"]
+  }, {
+    "url": "http://feeds.feedburner.com/theendeavour",
+    "categories": ["Applied Math Research", "Math Technology"]
+  }, {
+    "url": "http://feeds.feedburner.com/halbtagsblog/oPZW",
+    "categories": ["Math Teaching"]
+  }, {
+    "url": "http://feeds.feedburner.com/blogspot/zuLSW",
+    "categories": ["Math Ed Research", "Math Teaching"]
+  }, {
+    "url": "http://allken-bernard.org/pierre/weblog/posts.rss",
+    "categories": ["Pure Math Research", "Art and Math"]
+  }, {
+    "url": "http://feeds.feedburner.com/VirtualMathTutor",
+    "categories": ["Math Teaching", "Visual Math"]
+  }, {
+    "url": "http://feeds2.feedburner.com/UnderstandingUncertainty",
+    "categories": ["Math Journalism"]
+  }, {
+    "url": "http://feeds.feedburner.com/blogspot/IzVgCo",
+    "categories": ["Math Teaching", "Math Technology"]
+  }, {
+    "url": "http://feeds.feedburner.com/ImpossibleWorldSiteBlog",
+    "categories": ["Art and Math", "Visual Math"]
+  }, {
+    "url": "http://feeds.feedburner.com/mrlsmath",
+    "categories": ["Math Teaching"]
+  }, {
+    "url": "http://feeds.feedburner.com/MathEdBlog",
+    "categories": ["Math Teaching"]
+  }, {
+    "url": "http://feeds.feedburner.com/ProbablyOverthinkingIt",
+    "categories": ["Applied Math Research"]
+  }, {
+    "url": "http://www.teachmathfree.com/feed",
+    "categories": ["Math Teaching"]
+  }, {
+    "url": "http://www.algebra.org/news/feed/",
+    "categories": ["Math Teaching"]
+  }, {
+    "url": "http://minds.acmescience.com/?feed=rss2",
+    "categories": ["Math Journalism"]
+  }, {
+    "url": "https://rigtriv.wordpress.com/feed/",
+    "categories": ["Pure Math Research"]
+  }, {
+    "url": "http://polymathprojects.org/feed/",
+    "categories": ["Pure Math Research"]
+  }, {
+    "url": "https://theproofisinthepudding.wordpress.com/feed/",
+    "categories": ["Applied Math Research"]
+  }, {
+    "url": "http://www.scilogs.de/mathematik-im-alltag/feed/",
+    "categories": ["Math Journalism"]
+  }, {
+    "url": "http://joaniesilverman.com/feed/",
+    "categories": ["Math Teaching"]
+  }, {
+    "url": "http://tangentspodcast.com/feed/",
+    "categories": ["Math Teaching"]
+  }, {
+    "url": "http://tcsmath.org/feed/",
+    "categories": ["Applied Math Research"]
+  }, {
+    "url": "http://twofoldgaze.com/feed/",
+    "categories": ["Pure Math Research"]
+  }, {
+    "url": "http://theronhitchman.blogspot.com/feeds/posts/default",
+    "categories": ["Pure Math Research"]
+  }, {
+    "url": "http://accumulatearate.wordpress.com/?feed=rss",
+    "categories": ["Math Teaching"]
+  }, {
+    "url": "http://mathbabe.wordpress.com/feed/",
+    "categories": ["Math Journalism"]
+  }, {
+    "url": "http://ichoosemath.wordpress.com/feed/",
+    "categories": ["Math Teaching", "Math at School"]
+  }, {
+    "url": "http://www.vismath.eu/blog/rss",
+    "categories": [null]
+  }, {
+    "url": "http://www.vismath.eu/en/blog/rss",
+    "categories": [null]
+  }, {
+    "url": "http://itsallmath.wordpress.com/feed",
+    "categories": ["Math Teaching", "Math at School"]
+  }, {
+    "url": "http://www.math3ma.com/mathema?format=RSS",
+    "categories": ["Pure Math Research"]
+  }, {
+    "url": "http://feynmanliang.com/rss/",
+    "categories": ["Applied Math Research", "Math Technology"]
+  }, {
+    "url": "http://mythagon.wordpress.com/feed/",
+    "categories": ["Math at School", "Math Teaching"]
+  }, {
+    "url": "http://gottwurfelt.com/feed/",
+    "categories": ["Pure Math Research", "Math Journalism"]
+  }, {
+    "url": "http://richardzach.org/feed",
+    "categories": ["Pure Math Research", "History of Math"]
+  }, {
+    "url": "https://edwardfhughes.wordpress.com/feed/",
+    "categories": ["Pure Math Research", "Applied Math Research"]
+  }, {
+    "url": "http://ambercaldwell.com/feed/",
+    "categories": ["Math Teaching"]
+  }, {
+    "url": "https://feeds.pinboard.in/rss/u:simonjob/t:maths/",
+    "categories": ["Math Teaching", "Math at School"]
+  }, {
+    "url": "http://mathjokes4mathyfolks.wordpress.com/feed",
+    "categories": ["Recreational Math", "Art and Math"]
+  }, {
+    "url": "http://mluebbecke.wordpress.com/feed/",
+    "categories": ["Applied Math Research", "Math Teaching"]
+  }, {
+    "url": "http://www.goodmath.org/blog/feed/",
+    "categories": ["Pure Math Research", "Math Journalism"]
+  }, {
+    "url": "http://feeds.feedburner.com/gaussianos",
+    "categories": ["Pure Math Research", "Math Journalism"]
+  }, {
+    "url": "http://www.mathgoespop.com/feed.xml",
+    "categories": ["Math Teaching", "Recreational Math"]
+  }, {
+    "url": "http://rss.math.isomorphism.es",
+    "categories": ["Art and Math", "Pure Math Research"]
+  }, {
+    "url": "http://statswithcats.wordpress.com/feed/",
+    "categories": ["Applied Math Research"]
+  }, {
+    "url": "http://amathteacherlovesmath.wordpress.com/feed/",
+    "categories": ["Math Teaching"]
+  }, {
+    "url": "http://mrsreillyblog.wordpress.com/feed/",
+    "categories": ["Math Teaching"]
+  }, {
+    "url": "http://mathsugaroff.wordpress.com/feed/",
+    "categories": ["Math Teaching"]
+  }, {
+    "url": "http://thegeometryteacher.wordpress.com/feed/",
+    "categories": ["Math Teaching"]
+  }, {
+    "url": "http://lifethroughamathematicianseyes.wordpress.com/feed/",
+    "categories": ["Math At School"]
+  }, {
+    "url": "http://spectatormaths.wordpress.com/feed/",
+    "categories": ["Math Teaching"]
+  }, {
+    "url": "http://colleenyoung.wordpress.com/feed/",
+    "categories": ["Math Teaching"]
+  }, {
+    "url": "http://profkeithdevlin.wordpress.com/feed/",
+    "categories": ["Math Journalism", "Recreational Math"]
+  }, {
+    "url": "http://retractionwatch.wordpress.com/feed/",
+    "categories": ["Math Journalism"]
+  }, {
+    "url": "http://www.scottaaronson.com/blog/?feed=rss2",
+    "categories": ["Applied Math Research", "Pure Math Research"]
+  }, {
+    "url": "https://qedinsight.wordpress.com/feed/",
+    "categories": ["Math Teaching", "Math at School"]
+  }, {
+    "url": "http://proofmathisbeautiful.tumblr.com/rss",
+    "categories": ["Visual Math"]
+  }, {
+    "url": "http://letsplaymath.net/feed/",
+    "categories": ["Math Teaching", "Math at School"]
+  }, {
+    "url": "http://www.konradvoelkel.com/feed/",
+    "categories": ["Pure Math Research"]
+  }, {
+    "url": "http://web.ece.rice.edu/richb/feed/",
+    "categories": ["Pure Math Research"]
+  }, {
+    "url": "https://sangakoomaths4life.wordpress.com/feed/",
+    "categories": ["Math Teaching", "Math at School"]
+  }, {
+    "url": "http://symmetricblog.wordpress.com/feed/",
+    "categories": ["Math Teaching", "Editors' Blogroll"]
+  }, {
+    "url": "http://maamathedmatters.blogspot.com/feeds/posts/default",
+    "categories": ["Math Teaching", "Math Ed Research"]
+  }, {
+    "url": "http://feeds2.feedburner.com/roice",
+    "categories": ["Visual Math"]
+  }, {
+    "url": "http://romathio.wordpress.com/feed/",
+    "categories": ["Math Teaching"]
+  }, {
+    "url": "http://coloquiooleis.wordpress.com/feed/",
+    "categories": ["Pure Math Research"]
+  }, {
+    "url": "http://mindfull.wordpress.com/feed/",
+    "categories": ["Math Teaching"]
+  }, {
+    "url": "http://fivetwelvethirteen.wordpress.com/feed/",
+    "categories": ["Math Teaching", "Math at School"]
+  }, {
+    "url": "http://keespopinga.blogspot.com/feeds/posts/default",
+    "categories": ["Math Teaching", "History of Math"]
+  }, {
+    "url": "http://mrpiccmath.weebly.com/1/feed",
+    "categories": ["Math Teaching", "Math at School"]
+  }, {
+    "url": "https://pperfectsquares.wordpress.com/feed/",
+    "categories": ["Math Teaching"]
+  }, {
+    "url": "http://jessecmckeown.tumblr.com/rss",
+    "categories": ["Pure Math Research"]
+  }, {
+    "url": "http://coxmath.blogspot.com/feeds/posts/default",
+    "categories": ["Math Teaching", "Math at School"]
+  }, {
+    "url": "http://picturesofmath.blogspot.com/feeds/posts/default",
+    "categories": ["Art and Math", "Visual Math"]
+  }, {
+    "url": "http://peterashmathedblog.blogspot.com/feeds/posts/default",
+    "categories": ["Math Teaching"]
+  }, {
+    "url": "http://feeds.feedburner.com/LaCovachaMatematica?format=xml",
+    "categories": ["Math Teaching", "Math Technology"]
+  }, {
+    "url": "http://launchings.blogspot.com/feeds/posts/default",
+    "categories": ["Math Ed Research", "Math Teaching"]
+  }, {
+    "url": "http://feeds.feedburner.com/blogspot/OsUJo?format=xml",
+    "categories": ["Math Teaching", "Math Ed Research"]
+  }, {
+    "url": "http://roughlynormal.com/feed/",
+    "categories": ["Math Teaching"]
+  }, {
+    "url": "http://magic-maths-money.blogspot.com/feeds/posts/default",
+    "categories": ["Math Journalism"]
+  }, {
+    "url": "http://www.logicmatters.net/feed/",
+    "categories": ["Pure Math Research", "Art and Math"]
+  }, {
+    "url": "http://terrytao.wordpress.com/feed/",
+    "categories": ["Pure Math Research"]
+  }, {
+    "url": "http://feeds.feedburner.com/ResearchBloggingMathematicsChinese?format=xml",
+    "categories": ["Applied Math Research", "Pure Math Research"]
+  }, {
+    "url": "http://feeds.feedburner.com/ResearchBlogging-Mathematics-Polish?format=xml",
+    "categories": ["Applied Math Research", "Pure Math Research"]
+  }, {
+    "url": "http://feeds.feedburner.com/ResearchBlogging-Mathematics-Italian?format=xml",
+    "categories": ["Applied Math Research", "Pure Math Research"]
+  }, {
+    "url": "http://feeds.feedburner.com/ResearchBloggingMathematicsSpanish?format=xml",
+    "categories": ["Applied Math Research", "Pure Math Research"]
+  }, {
+    "url": "http://feeds.feedburner.com/ResearchBloggingMathematicsPortuguese?format=xml",
+    "categories": ["Applied Math Research", "Pure Math Research"]
+  }, {
+    "url": "http://feeds.feedburner.com/ResearchBloggingMathematicsGerman",
+    "categories": ["Applied Math Research", "Pure Math Research"]
+  }, {
+    "url": "http://rudimatematici-lescienze.blogautore.espresso.repubblica.it/feed/",
+    "categories": ["Math Journalism"]
+  }, {
+    "url": "http://feeds.feedburner.com/Math-journalunderstandingMath",
+    "categories": ["Math Teaching"]
+  }, {
+    "url": "http://feeds.feedburner.com/MathStories?format=xml",
+    "categories": ["Math Teaching"]
+  }, {
+    "url": "http://www.mathoman.com/rss.php",
+    "categories": ["Pure Math Research", "Math Journalism"]
+  }, {
+    "url": "http://napmath.wordpress.com/feed/",
+    "categories": ["Math Teaching", "Math at School"]
+  }, {
+    "url": "http://mathbutler.wordpress.com/feed/",
+    "categories": ["Math Teaching", "Math at School"]
+  }, {
+    "url": "http://geometrywiz.wordpress.com/feed/",
+    "categories": ["Math Teaching"]
+  }, {
+    "url": "http://ideasfortheclassroom.wordpress.com/feed/",
+    "categories": ["Math Teaching"]
+  }, {
+    "url": "http://gidgebridge.wordpress.com/feed/",
+    "categories": ["Math Teaching"]
+  }, {
+    "url": "http://informalmath.wordpress.com/feed/",
+    "categories": ["Math Teaching"]
+  }, {
+    "url": "http://mikesmathpage.wordpress.com/feed/",
+    "categories": ["Math Teaching", "Editor's Blog Roll"]
+  }, {
+    "url": "http://mathgarage.wordpress.com/feed/",
+    "categories": ["Math Teaching", "Math at School"]
+  }, {
+    "url": "http://hilbertshotel.wordpress.com/feed/",
+    "categories": ["Math Teaching"]
+  }, {
+    "url": "http://what-if.xkcd.com/feed.atom",
+    "categories": ["Math journalism"]
+  }, {
+    "url": "http://rss.sciam.com/roots-of-unity/feed?format=xml",
+    "categories": ["Math Journalism", "Recreational Math"]
+  }, {
+    "url": "http://visualizingmath.tumblr.com/rss",
+    "categories": ["Visual Math"]
+  }, {
+    "url": "http://mysliceofpizza.blogspot.com/feeds/posts/default",
+    "categories": ["Recreational Math"]
+  }, {
+    "url": "http://jeremykun.com/feed/",
+    "categories": ["Pure Math Research", "Applied Math Research"]
+  }, {
+    "url": "http://langerkogutmath.wordpress.com/feed/",
+    "categories": ["Math Teaching", "Math at School"]
+  }, {
+    "url": "http://findingtheprocess.wordpress.com/feed/",
+    "categories": ["Math Teaching", "Math at School"]
+  }, {
+    "url": "http://focusonmath.wordpress.com/feed/",
+    "categories": ["Math Teaching", "Math at School"]
+  }, {
+    "url": "http://gbark.wordpress.com/feed/",
+    "categories": ["Academic Life"]
+  }, {
+    "url": "http://mathematical-objects.tumblr.com/rss",
+    "categories": ["Visual Math", "Art and Math"]
+  }, {
+    "url": "http://nghoussoub.com/feed/",
+    "categories": ["Academic Life"]
+  }, {
+    "url": "http://paulwgoldberg.blogspot.com/feeds/posts/default",
+    "categories": ["Academic Life"]
+  }, {
+    "url": "http://johncarlosbaez.wordpress.com/feed/",
+    "categories": ["Pure Math Research", "Applied Math Research"]
+  }, {
+    "url": "http://www.askamathematician.com/?feed=rss2",
+    "categories": ["Math Journalism"]
+  }, {
+    "url": "http://hilbertthm90.wordpress.com/feed/",
+    "categories": ["Pure Math Research"]
+  }, {
+    "url": "http://quomodocumque.wordpress.com/feed/",
+    "categories": ["Math Teaching"]
+  }, {
+    "url": "http://blogs.williams.edu/Morgan/feed/",
+    "categories": ["Math Teaching"]
+  }, {
+    "url": "http://onionesquereality.wordpress.com/feed/",
+    "categories": ["Pure Math Research"]
+  }, {
+    "url": "http://blogs.ams.org/matheducation/feed/",
+    "categories": ["Math Teaching"]
+  }, {
+    "url": "http://peacockmaths.wordpress.com/feed/",
+    "categories": ["Math Teaching"]
+  }, {
+    "url": "http://www.maa.org/news/on-this-day/rss.xml",
+    "categories": ["History of Math"]
+  }, {
+    "url": "http://milwardh.tumblr.com/rss",
+    "categories": ["Art and Math"]
+  }, {
+    "url": "http://danaernst.com/feed/",
+    "categories": ["Pure Math Research", "Math Ed Research"]
+  }, {
+    "url": "http://checkmyworking.com/feed/",
+    "categories": ["Pure Math Research", "Recreational Math"]
+  }, {
+    "url": "http://aperiodical.com/category/columns/travels-in-a-mathematical-world/feed/",
+    "categories": ["Math Journalism", "Recreational Math"]
+  }, {
+    "url": "http://aperiodical.com/feed/",
+    "categories": ["Math Journalism", "Recreational Math"]
+  }, {
+    "url": "http://aperiodical.com/category/columns/blackboard-bold/feed/",
+    "categories": ["Math Journalism", "Recreational Math"]
+  }, {
+    "url": "http://mathtourist.blogspot.com/feeds/posts/default",
+    "categories": ["Art and Math", "Visual Math"]
+  }, {
+    "url": "http://blogs.ams.org/onthemarket/feed/",
+    "categories": ["Academic Life"]
+  }, {
+    "url": "http://www.huffingtonpost.com/author/index.php?author=dr-keith-devlin",
+    "categories": ["Math Journalism"]
+  }, {
+    "url": "http://danielwalsh.tumblr.com/rss",
+    "categories": ["Art and Math", "Visual Math"]
+  }, {
+    "url": "http://blog.computationalcomplexity.org/rss.xml",
+    "categories": ["Applied Math Research", "Academic Life"]
+  }, {
+    "url": "http://chromotopy.org/feed.xml",
+    "categories": ["Pure Math Research"]
+  }, {
+    "url": "http://haris-aziz.blogspot.com/feeds/posts/default",
+    "categories": ["Applied Math Research"]
+  }, {
+    "url": "http://rtalbert.org/blog/feed",
+    "categories": ["Math Ed Research", "Math Teaching"]
+  }, {
+    "url": "http://geometrydaily.tumblr.com/rss",
+    "categories": ["Art and Math"]
+  }, {
+    "url": "http://mathtans.blogspot.ca/feeds/posts/default?alt=rss",
+    "categories": ["Recreational Math"]
+  }, {
+    "url": "http://feeds.feedburner.com/blogspot/wCeDd?format=xml",
+    "categories": ["Applied Math Research"]
+  }, {
+    "url": "http://www.calculushumor.com/3/feed",
+    "categories": ["Recreational Math"]
+  }, {
+    "url": "http://anglesofreflection.blogspot.com/feeds/posts/default",
+    "categories": ["Math Teaching"]
+  }, {
+    "url": "http://www.reproducibleresearch.net/blog/feed/",
+    "categories": ["Applied Math Research"]
+  }, {
+    "url": "http://physicspages.com/feed/",
+    "categories": ["Applied Math Research"]
+  }, {
+    "url": "http://logiciansdoitwithmodels.com/feed/",
+    "categories": ["Pure Math Research"]
+  }, {
+    "url": "http://www.flyingcoloursmaths.co.uk/feed/",
+    "categories": ["Math Teaching", "Math at School"]
+  }, {
+    "url": "http://www.mathrecap.com/feed/",
+    "categories": ["Math Teaching"]
+  }, {
+    "url": "http://bit-player.org/feed",
+    "categories": ["Pure Math Research", "Recreational Math"]
+  }, {
+    "url": "https://byorgey.wordpress.com/feed/",
+    "categories": ["Pure Math Research"]
+  }, {
+    "url": "http://divisbyzero.com/feed/",
+    "categories": ["Pure Math Research"]
+  }, {
+    "url": "http://cheesemonkeysf.blogspot.com/feeds/posts/default",
+    "categories": ["Math Teaching"]
+  }, {
+    "url": "http://inquiryintoinquiry.com/feed/",
+    "categories": ["Pure Math Research"]
+  }, {
+    "url": "http://pballew.blogspot.com/feeds/posts/default",
+    "categories": ["History of Math"]
+  }, {
+    "url": "http://purenumbers.tumblr.com/rss",
+    "categories": ["Recreational Math"]
+  }, {
+    "url": "http://mathemathinking.com/feed/",
+    "categories": ["Applied Math Research"]
+  }, {
+    "url": "http://iisanumber.blogspot.com/feeds/posts/default",
+    "categories": ["Math Teaching", "Math Ed Research"]
+  }, {
+    "url": "http://inventingsituations.net/feed/",
+    "categories": ["Applied Math Research", "Academic Life"]
+  }, {
+    "url": "http://8ismyluckynumber.blogspot.com/feeds/posts/default",
+    "categories": ["Math Teaching"]
+  }, {
+    "url": "http://theiblblog.blogspot.com/feeds/posts/default",
+    "categories": ["Math Ed Research"]
+  }, {
+    "url": "http://corner.mimuw.edu.pl/?feed=rss2",
+    "categories": ["Applied Math Research"]
+  }, {
+    "url": "http://boolesrings.org/asafk/feed/",
+    "categories": ["Pure Math Research", "Academic Life"]
+  }, {
+    "url": "http://feeds.feedblitz.com/oupblogmathematics",
+    "categories": ["Math Journalism"]
+  }, {
+    "url": "http://matroidunion.org/?feed=rss2",
+    "categories": ["Pure Math Research"]
+  }, {
+    "url": "http://www.lindonslog.com/category/mathematics/feed/",
+    "categories": ["Applied Math Research"]
+  }, {
+    "url": "http://blogs.ams.org/visualinsight/feed/",
+    "categories": ["Visual Math"]
+  }, {
+    "url": "http://trickyprekmath.blogspot.com/feeds/posts/default",
+    "categories": ["Math Teaching"]
+  }, {
+    "url": "http://davemath2.blogspot.com/feeds/posts/default",
+    "categories": ["Math Teaching"]
+  }, {
+    "url": "http://exit10a.blogspot.com/feeds/posts/default",
+    "categories": ["Math Teaching"]
+  }, {
+    "url": "http://feeds.feedburner.com/LinearProgramming",
+    "categories": ["Math Teaching"]
+  }, {
+    "url": "http://angrystatistician.blogspot.com/feeds/posts/default",
+    "categories": ["Applied Math Research", "Math Technology"]
+  }, {
+    "url": "http://www.coast2coast.me/carl/feed/",
+    "categories": ["Math Teaching"]
+  }, {
+    "url": "http://ispeakmath.org/feed/",
+    "categories": ["Math Teaching", "Math Technology"]
+  }, {
+    "url": "http://techiemathteacher.com/feed/",
+    "categories": ["Math Teaching", "Math Technology"]
+  }, {
+    "url": "http://www.shelovesmath.com/feed/",
+    "categories": ["Math Teaching"]
+  }, {
+    "url": "http://bowmandickson.com/feed/",
+    "categories": ["Math Teaching"]
+  }, {
+    "url": "http://fliplearnshare.blogspot.com/feeds/posts/default",
+    "categories": ["Math Teaching"]
+  }, {
+    "url": "https://gleamingnumberrockets.wordpress.com/feed/",
+    "categories": ["Math Teaching"]
+  }, {
+    "url": "http://llatgg.blogspot.com/feeds/posts/default",
+    "categories": ["Math Teaching"]
+  }, {
+    "url": "http://combinatorialgametheory.blogspot.com/feeds/posts/default",
+    "categories": ["Applied Math Research", "Math Teaching"]
+  }, {
+    "url": "http://rmosvold.com/feed/",
+    "categories": ["Math Ed Research"]
+  }, {
+    "url": "http://gfletchy.com/feed/",
+    "categories": ["Math Teaching"]
+  }, {
+    "url": "http://foundmath.blogspot.com/feeds/posts/default",
+    "categories": ["Math Ed Research", "Math Teaching"]
+  }, {
+    "url": "http://marykienstra.com/feed/",
+    "categories": ["Math Teaching"]
+  }, {
+    "url": "http://failearlyandoften.blogspot.com/feeds/posts/default",
+    "categories": ["Math Teaching"]
+  }, {
+    "url": "http://mrcollinsmaths.blogspot.com/feeds/posts/default",
+    "categories": ["Math Teaching", "Academic Life"]
+  }, {
+    "url": "http://solvemymaths.com/feed/",
+    "categories": ["Math Teaching"]
+  }, {
+    "url": "http://lazyocho.com/feed/",
+    "categories": ["Math Teaching", "Academic Life"]
+  }, {
+    "url": "http://steveleinwand.com/blog-2/feed/",
+    "categories": ["Math Ed Research"]
+  }, {
+    "url": "http://geekymathteacher.com/feed/",
+    "categories": ["Math Teaching", "Academic Life"]
+  }, {
+    "url": "https://darrenjw.wordpress.com/feed/",
+    "categories": ["Applied Math Research"]
+  }, {
+    "url": "http://marilynburnsmathblog.com/wordpress/feed/",
+    "categories": ["Math Teaching"]
+  }, {
+    "url": "http://stuckonalgebra.blogspot.com/feeds/posts/default",
+    "categories": ["Math Ed Research", "Math Technology"]
+  }, {
+    "url": "https://lgojak.wordpress.com/feed/",
+    "categories": ["Math Teaching"]
+  }, {
+    "url": "http://www.mathfireworks.com/feed/",
+    "categories": ["Math Teaching"]
+  }, {
+    "url": "http://researchinpractice.wordpress.com/feed/",
+    "categories": ["Math Ed Research"]
+  }, {
+    "url": "http://possiblyphilosophy.wordpress.com/feed/",
+    "categories": ["Pure Math Research"]
+  }, {
+    "url": "http://www.shelovesmath.com/?feed=rss2",
+    "categories": ["Math Teaching"]
+  }, {
+    "url": "http://justinsmath.wordpress.com/feed/",
+    "categories": ["Math at School", "Pure Math Research"]
+  }, {
+    "url": "http://ldtopology.wordpress.com/feed/",
+    "categories": ["Pure Math Research"]
+  }, {
+    "url": "http://dorais.org/feed?donotcachepage=b6ef5e886ffd0a72b7f2befbf89bf2ef",
+    "categories": ["Pure Math Research"]
+  }, {
+    "url": "http://gilkalai.wordpress.com/feed/",
+    "categories": ["Pure Math Research", "Academic Life"]
+  }, {
+    "url": "https://ayoucis.wordpress.com/feed/",
+    "categories": ["Pure Math Research"]
+  }, {
+    "url": "http://sonatamathematique.wordpress.com/feed/",
+    "categories": ["Art and Math"]
+  }, {
+    "url": "http://ilovemathsgames.wordpress.com/feed/",
+    "categories": ["Math Teaching"]
+  }, {
+    "url": "http://rootsoftheequation.wordpress.com/feed/",
+    "categories": ["Applied Math Research", "Math Teaching"]
+  }, {
+    "url": "http://mrcbaker.blogspot.com/feeds/posts/default",
+    "categories": ["Math Teaching", "Math Technology"]
+  }, {
+    "url": "http://news.mit.edu/rss/topic/mathematics",
+    "categories": ["Math Journalism", "Academic Life"]
+  }, {
+    "url": "http://aschinchon.wordpress.com/feed/",
+    "categories": ["Recreational Math"]
+  }, {
+    "url": "http://rigorandrelevance.wordpress.com/feed/",
+    "categories": ["Applied Math Research"]
+  }, {
+    "url": "http://mathblag.wordpress.com/feed/",
+    "categories": ["Pure Math Research"]
+  }, {
+    "url": "http://mathmamawrites.blogspot.com/feeds/posts/default",
+    "categories": ["Math Teaching"]
+  }, {
+    "url": "http://richardelwes.co.uk/feed/",
+    "categories": ["Math Journalism", "Recreational Math"]
+  }, {
+    "url": "http://mathmisery.com/wp/feed/",
+    "categories": ["Recreational Math"]
+  }, {
+    "url": "http://mathhombre.blogspot.com/feeds/posts/default",
+    "categories": ["Math Teaching"]
+  }, {
+    "url": "http://feeds.feedburner.com/MathForGrownups?format=xml",
+    "categories": ["Math Journalism"]
+  }, {
+    "url": "http://haggisthesheep.wordpress.com/feed/",
+    "categories": ["Pure Math Research"]
+  }, {
+    "url": "http://gowers.wordpress.com/feed/",
+    "categories": ["Pure Math Research"]
+  }, {
+    "url": "http://rjlipton.wordpress.com/feed/",
+    "categories": ["Pure Math Research", "Editor's Blog Roll"]
+  }, {
+    "url": "http://www.moebiusnoodles.com/feed/rss/",
+    "categories": ["Math Teaching"]
+  }, {
+    "url": "http://mrhonner.com/feed/",
+    "categories": ["Math Teaching"]
+  }, {
+    "url": "http://mathybeagle.com/feed/",
+    "categories": ["Math Teaching"]
+  }, {
+    "url": "http://4maths.wordpress.com/feed/",
+    "categories": ["Academic Life", "Math Ed Research"]
+  }, {
+    "url": "http://1001mathproblems.blogspot.com/feeds/posts/default",
+    "categories": ["Math Teaching"]
+  }, {
+    "url": "http://wildtopology.wordpress.com/feed/",
+    "categories": ["Pure Math Research", "Academic Life"]
+  }, {
+    "url": "http://blog.graceachen.com/feeds/posts/default",
+    "categories": ["Math at School", "Math Ed Research"]
+  }, {
+    "url": "http://teachingmathculture.wordpress.com/feed/",
+    "categories": ["Math Ed Research"]
+  }, {
+    "url": "http://ijkijkevin.wordpress.com/feed/",
+    "categories": ["Math Teaching"]
+  }, {
+    "url": "http://mrsakahoshi.wordpress.com/feed/",
+    "categories": ["Math Teaching", "Academic Life"]
+  }, {
+    "url": "http://banderson02.wordpress.com/feed/",
+    "categories": ["Math Teaching", "Academic Life"]
+  }, {
+    "url": "http://mattbakerblog.wordpress.com/feed/",
+    "categories": ["Pure Math Research", "Math Teaching"]
+  }, {
+    "url": "http://theoremoftheweek.wordpress.com/feed/",
+    "categories": ["Math Teaching"]
+  }, {
+    "url": "http://cavmaths.wordpress.com/feed/",
+    "categories": ["Math Teaching"]
+  }, {
+    "url": "http://tapintoteenminds.com/feed/",
+    "categories": ["Math Teaching", "Math Technology"]
+  }, {
+    "url": "http://fwaaldijk.wordpress.com/feed/",
+    "categories": ["Applied Math Research"]
+  }, {
+    "url": "http://mattersmathematical.wordpress.com/feed/",
+    "categories": ["Academic Life"]
+  }, {
+    "url": "http://acmescience.com/feed/",
+    "categories": ["Math Journalism"]
+  }, {
+    "url": "http://uofmath.wordpress.com/feed/",
+    "categories": ["Math Teaching", "Math at School"]
+  }, {
+    "url": "http://openmathbook.blogspot.com/feeds/posts/default",
+    "categories": ["Math Teaching"]
+  }, {
+    "url": "http://dgleich.wordpress.com/feed/",
+    "categories": ["Applied Math Research"]
+  }, {
+    "url": "http://nickhigham.wordpress.com/feed/",
+    "categories": ["Applied Math Research", "Academic Life"]
+  }, {
+    "url": "http://abagsthoughts.wordpress.com/feed/",
+    "categories": ["Applied Math Research", "Academic Life"]
+  }, {
+    "url": "http://speedupblogger.wordpress.com/feed/",
+    "categories": ["Applied Math Research"]
+  }, {
+    "url": "http://variationalform.wordpress.com/feed/",
+    "categories": ["Math Teaching"]
+  }, {
+    "url": "http://jsaia.wordpress.com/feed/",
+    "categories": ["Applied Math Research", "Academic Life"]
+  }, {
+    "url": "http://galoisrepresentations.wordpress.com/feed/",
+    "categories": ["Pure Math Research", "Academic Life"]
+  }, {
+    "url": "http://themathletes.wordpress.com/feed/",
+    "categories": ["Math Teaching"]
+  }, {
+    "url": "http://joyofeducation.wordpress.com/feed/",
+    "categories": ["Math Teaching"]
+  }, {
+    "url": "http://summathmadness.wordpress.com/feed/",
+    "categories": ["Math Teaching"]
+  }, {
+    "url": "http://plus.maths.org/content/rss.xml",
+    "categories": ["Math Journalism"]
+  }, {
+    "url": "http://plus.maths.org/content/blog/rss.xml",
+    "categories": ["Math Journalism"]
+  }, {
+    "url": "http://vknight.org/unpeudemath/feed.xml",
+    "categories": ["Applied Math Research"]
+  }, {
+    "url": "http://www.yummymath.com/feed/rss/",
+    "categories": ["Math Teaching", "Recreational Math"]
+  }, {
+    "url": "http://micromath.wordpress.com/feed/",
+    "categories": ["Math Teaching"]
+  }, {
+    "url": "http://blogs.ams.org/beyondreviews/feed/",
+    "categories": ["Math Journalism"]
+  }, {
+    "url": "http://existentialtype.wordpress.com/feed/",
+    "categories": ["Pure Math Research"]
+  }, {
+    "url": "http://welltemperedspreadsheet.wordpress.com/feed/",
+    "categories": ["Recreational Math", "Applied Math Research"]
+  }, {
+    "url": "http://blog.geogebra.org/feed",
+    "categories": ["Math Teaching"]
+  }, {
+    "url": "http://nesterko.com/blog/?feed=rss2",
+    "categories": ["Applied  Math Research"]
+  }, {
+    "url": "http://statisfaction.wordpress.com/feed/",
+    "categories": ["Applied  Math Research"]
+  }, {
+    "url": "http://thonyc.wordpress.com/feed/",
+    "categories": ["Math History"]
+  }, {
+    "url": "http://danpearcymaths.wordpress.com/feed/",
+    "categories": ["Math Teaching"]
+  }, {
+    "url": "http://thenumbertwentyone.wordpress.com/feed/",
+    "categories": ["Math Teaching"]
+  }, {
+    "url": "http://mrchasemath.wordpress.com/feed/",
+    "categories": ["Math Teaching"]
+  }, {
+    "url": "http://christopherdanielson.wordpress.com/feed/",
+    "categories": ["Math Teaching"]
+  }, {
+    "url": "https://curvedmaths.wordpress.com/feed/",
+    "categories": ["Pure Math Research"]
+  }, {
+    "url": "http://mr-stadel.blogspot.com/feeds/posts/default/",
+    "categories": ["Math Teaching"]
+  }, {
+    "url": "http://devlinsangle.blogspot.com/feeds/posts/default",
+    "categories": ["Math Journalism", "Editor's Blog Roll"]
+  }, {
+    "url": "http://jwilder.edublogs.org/feed/",
+    "categories": ["Math Teaching"]
+  }, {
+    "url": "http://fivetriangles.blogspot.com/feeds/posts/default",
+    "categories": ["Recreational Math"]
+  }, {
+    "url": "http://homotopytypetheory.org/feed/",
+    "categories": ["Pure Math Research"]
+  }, {
+    "url": "http://mrburkemath.blogspot.com/feeds/posts/default",
+    "categories": ["Recreational Math"]
+  }, {
+    "url": "http://deltascape.blogspot.com/feeds/posts/default",
+    "categories": ["Math Teaching"]
+  }, {
+    "url": "http://dimitri45a.blogspot.com/feeds/posts/default",
+    "categories": ["Math Teaching"]
+  }, {
+    "url": "http://feeds.feedburner.com/CtkInsights",
+    "categories": ["Math Teaching"]
+  }, {
+    "url": "http://www.doingmathematics.com/2/feed",
+    "categories": ["Math Teaching"]
+  }, {
+    "url": "http://craftymathed.blogspot.com/feeds/posts/default",
+    "categories": ["Math Teaching"]
+  }, {
+    "url": "http://feeds.feedburner.com/pratikpoddarcse",
+    "categories": ["Recreational Math"]
+  }, {
+    "url": "http://youdothemathkthrucalculus.blogspot.com/feeds/posts/default",
+    "categories": [null]
+  }, {
+    "url": "http://blog.ingo-bartling.de/feed/",
+    "categories": ["Math Teaching"]
+  }, {
+    "url": "http://feeds.feedburner.com/blogspot/OFocE?format=xml",
+    "categories": ["Math Teaching"]
+  }, {
+    "url": "http://page2rss.com/rss/69bacf7e3cfac715759da8b0db2f3188",
+    "categories": ["Pure Math Research", "Academic Life"]
+  }, {
+    "url": "http://samjshah.com/feed/",
+    "categories": ["Math Teaching"]
+  }, {
+    "url": "http://orinanobworld.blogspot.com/feeds/posts/default",
+    "categories": ["Applied Math Research"]
+  }, {
+    "url": "http://www.ams.org/blog/phdplus/feed/",
+    "categories": ["Academic Life", "Math Journalism"]
+  }, {
+    "url": "http://noncommutativegeometry.blogspot.com/feeds/posts/default",
+    "categories": ["Pure Math Research", "Math Journalism"]
+  }, {
+    "url": "http://feeds2.feedburner.com/MathNotations",
+    "categories": ["Math Teaching"]
+  }, {
+    "url": "http://mathtricks.org/feed/",
+    "categories": ["Recreational Math"]
+  }, {
+    "url": "http://mathfour.com/feed",
+    "categories": ["Math Teaching"]
+  }, {
+    "url": "http://math.andrej.com/feed/",
+    "categories": ["Applied Math Research", "Academic Life"]
+  }, {
+    "url": "http://feeds.feedburner.com/Mathrecreation?format=xml",
+    "categories": ["Math at School", "Recreational Math"]
+  }, {
+    "url": "http://mathtango.blogspot.com/feeds/posts/default",
+    "categories": ["Math Journalism", "Academic Life"]
+  }, {
+    "url": "http://www.kenthaines.com/blog/atom.xml",
+    "categories": ["Math Teaching"]
+  }, {
+    "url": "http://www.mathycathy.com/blog/feed/",
+    "categories": ["Math Teaching", "Math Technology"]
+  }, {
+    "url": "http://feeds.feedburner.com/splinder/DymG?format=xml",
+    "categories": ["Math Teaching"]
+  }, {
+    "url": "http://feeds.feedburner.com/math-blog?format=xml",
+    "categories": ["Math Journalism"]
+  }, {
+    "url": "http://mathteachermambo.blogspot.com/feeds/posts/default",
+    "categories": ["Math Teaching"]
+  }, {
+    "url": "http://feeds.feedburner.com/MathematicsAndMultimedia?format=xml",
+    "categories": ["Math Teaching"]
+  }, {
+    "url": "http://tonysmaths.blogspot.com/feeds/posts/default",
+    "categories": ["Art and Math", "Recreational Math"]
+  }, {
+    "url": "http://www.noncommutative.org/index.php/feed",
+    "categories": ["Pure Math Research"]
+  }, {
+    "url": "http://andrescaicedo.wordpress.com/feed/",
+    "categories": ["Pure Math Research", "Math Teaching"]
+  }, {
+    "url": "http://mathematicsforstudents.wordpress.com/feed/",
+    "categories": ["Math Teaching", "Math Technology"]
+  }, {
+    "url": "http://egtheory.wordpress.com/feed/",
+    "categories": ["Applied Math Research"]
+  }, {
+    "url": "http://opencalculus.wordpress.com/feed/",
+    "categories": ["Math Teaching", "Math Technology"]
+  }, {
+    "url": "http://www.blogger.com/feeds/1695871120398977027/posts/full",
+    "categories": ["Math Teaching", "Math Technology"]
+  }, {
+    "url": "http://colah.github.io/rss.xml",
+    "categories": ["Pure Math Research"]
+  }, {
+    "url": "http://ifwisdomwereteachable.wordpress.com/feed/",
+    "categories": ["Pure Math Research"]
+  }, {
+    "url": "http://threesixty360.wordpress.com/feed/",
+    "categories": ["Recreational Math"]
+  }, {
+    "url": "https://colleenyoung.wordpress.com/feed/",
+    "categories": ["Math Teaching"]
+  }, {
+    "url": "http://mathequalslove.blogspot.com/feeds/posts/default?alt\\x3drss",
+    "categories": ["Math Teaching"]
+  }, {
+    "url": "http://mathfest.blogspot.com/feeds/posts/default",
+    "categories": ["Pure Math Research"]
+  }, {
+    "url": "http://mike-naylor.blogspot.com/feeds/posts/default",
+    "categories": ["Recreational Math", "Visual Math"]
+  }, {
+    "url": "http://math-frolic.blogspot.com/feeds/posts/default",
+    "categories": ["Recreational Math"]
+  }, {
+    "url": "http://www.japheth.org/feed/",
+    "categories": ["Math Teaching"]
+  }, {
+    "url": "http://iamateacher-thisismyjourney.blogspot.com/feeds/posts/default",
+    "categories": ["Math Teaching"]
+  }, {
+    "url": "http://homeschoolmath.blogspot.com/feeds/posts/default",
+    "categories": ["Math Teaching"]
+  }, {
+    "url": "http://dataisnature.com/?feed=rss2",
+    "categories": ["Applied Math Research", "Visual Math"]
+  }, {
+    "url": "http://dangoldner.wordpress.com/feed/",
+    "categories": ["Math Teaching"]
+  }, {
+    "url": "http://feeds.feedburner.com/MichaelTricksORB?format=xml",
+    "categories": ["Applied Math Research"]
+  }, {
+    "url": "http://maanumberaday.blogspot.com/feeds/posts/default",
+    "categories": ["Math Journalism"]
+  }, {
+    "url": "http://horizonsaftermath.blogspot.com/feeds/posts/default",
+    "categories": ["Math Journalism"]
+  }, {
+    "url": "http://dynamicmathclassroom.blogspot.com/feeds/posts/default",
+    "categories": ["Math Teaching"]
+  }, {
+    "url": "http://freakonometrics.hypotheses.org/feed",
+    "categories": ["Applied Math Research"]
+  }, {
+    "url": "http://mathrising.com/?feed=rss2",
+    "categories": ["Pure Math Research"]
+  }, {
+    "url": "http://matheminutes.blogspot.com/feeds/posts/default",
+    "categories": ["Math Teaching"]
+  }, {
+    "url": "http://math.williams.edu/category/blog/feed/",
+    "categories": ["Math At School"]
+  }, {
+    "url": "http://fivethirtyeight.blogs.nytimes.com/feed/",
+    "categories": ["Math Journalism"]
+  }, {
+    "url": "http://xorshammer.com/feed/",
+    "categories": ["Pure Math Research"]
+  }, {
+    "url": "http://matthewmaddux.tumblr.com/rss",
+    "categories": ["Math Journalism"]
+  }, {
+    "url": "http://mathymcmatherson.wordpress.com/feed/",
+    "categories": ["Math Teaching"]
+  }, {
+    "url": "http://luckytoilet.wordpress.com/feed/",
+    "categories": ["Recreational Math"]
+  }, {
+    "url": "http://cameroncounts.wordpress.com/feed/",
+    "categories": ["Pure Math Research"]
+  }, {
+    "url": "http://thalestriangles.blogspot.com/feeds/posts/default",
+    "categories": ["Math Teaching", "Academic Life"]
+  }, {
+    "url": "http://mathwithbaddrawings.com/feed/",
+    "categories": ["Math Teaching", "Editor's Blog Roll"]
+  }, {
+    "url": "http://blog.mrwaddell.net/feed",
+    "categories": ["Math Teaching"]
+  }]
 }
