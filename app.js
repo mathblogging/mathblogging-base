@@ -11,7 +11,7 @@ editorpicks();
 
 var FeedsJson = {};
 // var Feeds = {};
-var categories = ['Research', 'Journalism', 'Web'];
+var categories = ['Research', 'Journalism', 'Web', 'Recreational', 'Teaching', 'Education'];
 
 var filterFeedJson = function (category) {
   'use strict';

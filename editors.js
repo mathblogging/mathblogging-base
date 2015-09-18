@@ -37,9 +37,9 @@ module.exports = function() {
 
   var editorPage = '---\n' +
     'layout: page\n' +
-    'title: Mathblogging.org\n' +
-    '---\n\n' +
-    '## Editor\'s picks\n\n';
+    'title: Editor\'s picks\n' +
+    '---\n\n';
+//    '## Editor\'s picks\n\n';
 
   // Fetch embedded tweet HTML snippet
   var getEmbed = function(tweetId, callback) {

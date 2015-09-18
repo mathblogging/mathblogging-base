@@ -29,6 +29,81 @@
         }
         ],
         "ttl": 0
+    },
+    {
+      "title": "Finding Ways",
+      "feedURL": "http://fawnnguyen.com/feed/",
+      "type": "atom",
+      "homeURL": "http://fawnnguyen.com/",
+      "category": [
+        {
+          "title": "Teaching"
+        },
+        {
+          "title": "Education"
+        }
+        ],
+        "ttl": 0
+    },
+    {
+      "title": "Dana C. Ernst",
+      "feedURL": "http://danaernst.com/feed/",
+      "type": "atom",
+      "homeURL": "http://danaernst.com/",
+      "category": [
+        {
+          "title": "Research"
+        },
+        {
+          "title": "Education"
+        }
+        ],
+        "ttl": 0
+    },
+    {
+      "title": "Mr Honner",
+      "feedURL": "http://mrhonner.com/feed/",
+      "type": "atom",
+      "homeURL": "http://mrhonner.com/",
+      "category": [
+        {
+          "title": "Teaching"
+        },
+        {
+          "title": "Education"
+        }
+        ],
+        "ttl": 0
+    },
+    {
+      "title": "Math-Frolic!",
+      "feedURL": "https://math-frolic.blogspot.com/feeds/posts/default",
+      "type": "atom",
+      "homeURL": "https://math-frolic.blogspot.com/",
+      "category": [
+        {
+          "title": "Recreational"
+        },
+        {
+          "title": "Journalism"
+        }
+        ],
+        "ttl": 0
+    },
+    {
+      "title": "The Aperiodical",
+      "feedURL": "http://aperiodical.com/feed/",
+      "type": "atom",
+      "homeURL": "http://aperiodical.com/",
+      "category": [
+        {
+          "title": "Journalism"
+        },
+        {
+          "title": "Recreational"
+        }
+        ],
+        "ttl": 0
     }
   ]
 }
