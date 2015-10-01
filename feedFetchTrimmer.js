@@ -8,7 +8,7 @@ var Iconv = require('iconv').Iconv;
 var zlib = require('zlib');
 var sanitize = require('sanitize-filename');
 
-var feedFetchTrimmer = function(feedUrl) {
+var feedFetchTrimmer = function(feedUrl, callback) {
   'use strict';
   // thanks to example from feedparser:
   //  done, maybeDecompress, maybeTranslate, getParams
@@ -16,10 +16,11 @@ var feedFetchTrimmer = function(feedUrl) {
   // Define our streams
   function done(err) {
     if (err) {
-      // console.log('Feedparser ERROR:' + feedUrl + 'THREW' + err);
-      throw err;
+      console.log('Feedparser ERROR -- ' + feedUrl + ' -- THREW -- ' + err);
+      callback(err);
+      // return this.emit('error', new Error('Feedparser ERROR: ' + feedUrl + ' THREW ' + err + '\n'));
     }
-    return;
+    // return;
   }
 
   function maybeDecompress(res, encoding) {
@@ -69,9 +70,8 @@ var feedFetchTrimmer = function(feedUrl) {
     headers: {
       'User-Agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_8_5) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/31.0.1650.63 Safari/537.36',
       'accept': 'text/html,application/xhtml+xml',
-      timeout: 4000,
-      pool: false,
-      setMaxListeners: 100
+      timeout: 5000,
+      setMaxListeners: 10
     }
   };
   var req = request(options);
@@ -83,7 +83,7 @@ var feedFetchTrimmer = function(feedUrl) {
   req.on('error', done);
   req.on('response', function(res) {
     if (res.statusCode !== 200) {
-      return this.emit('error', new Error('Bad status code'));
+      return this.emit('error' + req.url, new Error('Bad status code'));
     }
     var encoding = res.headers['content-encoding'] || 'identity',
       charset = getParams(res.headers['content-type'] || '').charset;
