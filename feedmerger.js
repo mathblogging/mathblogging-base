@@ -12,7 +12,7 @@ exports.feedmerger = function(feedsJson, feedObject, mergedCallback) {
 
   var getFeed = function(feed, callback) {
     var feedparser = new FeedParser();
-    var req = fs.createReadStream(feed); // request(feed);
+    var req = fs.createReadStream(feed) || ''; // request(feed);
     req.on('error', function(error) {
         console.error(error);
     });
