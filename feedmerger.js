@@ -65,7 +65,7 @@ exports.feedmerger = function(feedsJson, feedObject, mergedCallback) {
   //  console.log(feedsJson);
   async.each(feedsJson, getFeed, function(err) {
     if (err) {
-      console.log(err);
+      throw err;
     }
     feedObject.items.sort(function(a, b) { //sort by date for creating pages later
       return b.date - a.date;
