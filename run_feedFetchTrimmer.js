@@ -19,21 +19,12 @@ fs.readFile('./feeds.json', 'utf8', function(err, data) {
   // var feed = Feeds.some;
   var callback = function(e) {
     if (e) {
-      console.log(e.name);
+      console.log(e);
       return;
     }
     console.log('something\'s odd, you expected an error but did not get one!');
   };
   for (var i = 0; i < urls.length; i++) {
-    process.on('uncaughtException', function(err) {
-      // handle the error safely
-      console.log('DANGER, WILL ROBINSON, an uncaught error is approaching!');
-    });
-
-    try {
       feedFetchTrimmer(urls[i], callback);
-    } catch (error) {
-      console.log(urls[i] + ' has a parsing error' + error);
-    }
   }
 });

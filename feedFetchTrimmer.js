@@ -4,7 +4,7 @@ var FeedParser = require('feedparser'); // to parse feeds
 var request = require('request'); // TODO let's abstract this so that we can switch it out (e.g., to fs.readFile )
 var Feed = require('rss'); // to write feeds (but not necessary to require here because we should get a Feed object from app.js -- which seems wrong)
 var fs = require('fs');
-var Iconv = require('iconv-lite');
+var iconv = require('iconv-lite');
 var zlib = require('zlib');
 var sanitize = require('sanitize-filename');
 
@@ -34,7 +34,7 @@ var feedFetchTrimmer = function(feedUrl, callback) {
   }
 
   function maybeTranslate(res, charset) {
-    var iconv;
+    // var iconv;
     // Use iconv-lite if its not utf8 already.
     if (!iconv && charset && !/utf-*8/i.test(charset)) {
       try {
