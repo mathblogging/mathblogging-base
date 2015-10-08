@@ -4,7 +4,7 @@ var FeedParser = require('feedparser'); // to parse feeds
 var request = require('request'); // TODO let's abstract this so that we can switch it out (e.g., to fs.readFile )
 var Feed = require('rss'); // to write feeds (but not necessary to require here because we should get a Feed object from app.js -- which seems wrong)
 var fs = require('fs');
-var Iconv = require('iconv').Iconv;
+var Iconv = require('iconv-lite');
 var zlib = require('zlib');
 var sanitize = require('sanitize-filename');
 
@@ -16,7 +16,7 @@ var feedFetchTrimmer = function(feedUrl, callback) {
   // Define our streams
   function done(err) {
     if (err) {
-      console.log('Feedparser ERROR -- ' + feedUrl + ' -- THREW -- ' + err);
+      console.log('Feedparser: ' + feedUrl + ' : ' + err);
       callback(err);
       // return this.emit('error', new Error('Feedparser ERROR: ' + feedUrl + ' THREW ' + err + '\n'));
     }
@@ -35,17 +35,13 @@ var feedFetchTrimmer = function(feedUrl, callback) {
 
   function maybeTranslate(res, charset) {
     var iconv;
-    // Use iconv if its not utf8 already.
+    // Use iconv-lite if its not utf8 already.
     if (!iconv && charset && !/utf-*8/i.test(charset)) {
       try {
-        iconv = new Iconv(charset, 'utf-8');
-        console.log('Converting from charset %s to utf-8', charset);
-        iconv.on('error', done);
-        // If we're using iconv, stream will be the output of iconv
-        // otherwise it will remain the output of request
-        res = res.pipe(iconv);
+        console.log('Feedparser: ' + feedUrl + ': Converting from charset %s to utf-8', charset);
+        res = res.pipe(iconv.decodeStream(charset));
       } catch (err) {
-        res.emit('error', err);
+        callback(err);
       }
     }
     return res;
@@ -147,10 +143,10 @@ var feedFetchTrimmer = function(feedUrl, callback) {
     // console.log(filename);
     fs.writeFile('./feeds/' + filename, xml, function(err) {
     if(err) {
-      console.log('hello error');
-        return console.log(err);
+      console.log(feedUrl + ': Error. Writing to filesystem failed.');
+      callback(err);
     }
-    console.log('SUCCESS: "' + filename + '" was saved!');
+    // console.log('SUCCESS: "' + filename + '" was saved!');
 });
   });
 };

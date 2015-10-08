@@ -11,7 +11,7 @@ fs.readFile('./feeds.json', 'utf8', function(err, data) {
   for (var j = 0; j < FeedsJson.blogs.length; j++) {
     urls.push(FeedsJson.blogs[j].url);
   }
-  console.log(urls);
+  // console.log(urls);
   if (err) {
     throw err;
   }
@@ -19,7 +19,7 @@ fs.readFile('./feeds.json', 'utf8', function(err, data) {
   // var feed = Feeds.some;
   var callback = function(e) {
     if (e) {
-      console.log(e);
+      console.log(e.name);
       return;
     }
     console.log('something\'s odd, you expected an error but did not get one!');
