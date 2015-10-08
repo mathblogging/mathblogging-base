@@ -12,7 +12,15 @@ exports.feedmerger = function(feedsJson, feedObject, mergedCallback) {
 
   var getFeed = function(feed, callback) {
     var feedparser = new FeedParser();
-    var req = fs.createReadStream(feed); // request(feed);
+    try {
+      fs.accessSync(feed);
+      var req = fs.createReadStream(feed); // request(feed);
+    }
+    catch (e){
+      console.log('File for ' + feed + ' was not accessible');
+      callback();
+      return;
+    }
     req.on('error', function(error) {
         console.error(error);
     });
@@ -57,7 +65,7 @@ exports.feedmerger = function(feedsJson, feedObject, mergedCallback) {
   //  console.log(feedsJson);
   async.each(feedsJson, getFeed, function(err) {
     if (err) {
-      throw err;
+      console.log(err);
     }
     feedObject.items.sort(function(a, b) { //sort by date for creating pages later
       return b.date - a.date;
