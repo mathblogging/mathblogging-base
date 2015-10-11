@@ -106,6 +106,9 @@ module.exports = function() {
     editorFeed.items.sort(function(a, b) { //sort by date for creating pages later
       return b.date - a.date;
     });
+    tweetIds.sort(function(a, b){
+      return b - a;
+    });
     var xml = editorFeed.xml({
       indent: true
     });
@@ -117,7 +120,7 @@ module.exports = function() {
       // console.log('SUCCESS: "Editors\' Feed" was saved!');
     });
     // this is stupid...
-    async.each(tweetIds, getEmbed, function(e) {
+    async.eachSeries(tweetIds, getEmbed, function(e) {
       if (e) {
         console.log(e);
       }
