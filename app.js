@@ -42,7 +42,7 @@ var categories = [];
 createCategories(FeedsJson, categories);
 // console.log(categories);
 var catFeedsJson = categories.map(filterFeedJson);
-catFeedsJson.push({ 'category': 'All Posts', 'blogs': FeedsJson.blogs});
+catFeedsJson.push({ 'category': 'Posts', 'blogs': FeedsJson.blogs});
 // console.log(JSON.stringify(catFeedsJson));
 
 var filterUrl = function(blogObject) {
