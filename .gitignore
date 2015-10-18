@@ -33,3 +33,5 @@ node_modules
 # Users Environment Variables
 .lock-wscript
 secret-config.json
+feeds
+mathblogging.org
