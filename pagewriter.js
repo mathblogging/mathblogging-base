@@ -21,37 +21,39 @@ exports.pagewriter = function(cat, jsonFeed) {
 
   var addEntries = function(resultFeed) {
     //   console.log(resultFeed.title);
-    // var newPart = '\n## ' + resultFeed.title + '\n\n';
-    var newPart = '';
+    var newPart = '<ul class="entry-list"> \n ';
     for (var i in resultFeed.items) {
       // if (i > 9) {
       //   break;
       // }
       var item = resultFeed.items[i];
       // console.log(JSON.stringify(item));
-      newPart += '* ' + '**' + escapeMD(item.author) + '**' + ' [' + escapeMD(item.title) + '](' + item.url + ')\n';
+      newPart += '<li> ' + '<a class="entry-title" href="' + item.url + '">' + ' <time datetime="' + item.date + '" class="entry-date">' + item.date.toDateString() + '</time> ' + escapeMD(item.title) + '<span class="entry-blog">' + escapeMD(item.author) + '</span> </a> </li> \n';
     }
-    newPart += '\n';
-    newPart += '[Grab the feed for ' + cat + ' blogs!](' + cat + '.xml)\n';
+    newPart += '\n </ul> \n ';
+    newPart += '<p> <a href="' + category + '.xml">' + 'Grab the feed for ' + category + ' blogs!</a></p>\n';
     return newPart;
   };
 
   theOutput += addEntries(theFeed);
-  fs.writeFile('./mathblogging.org/' + category + '.md', theOutput);
-  //   build out markdown now!
+  fs.writeFile('./mathblogging.org/' + category + '.html', theOutput, function(err) {
+    if (err) {
+      console.log('error: couldn\'t write HTML for Category: ' + category);
+      return console.log(err);
+    }
+    console.log('SUCCESS: HTML saved for Category: ' + category);
+  });
 
   var xml = theFeed.xml({
     indent: true
   });
-  fs.writeFile('./mathblogging.org/' + cat + '.xml', xml, function(err) {
+  fs.writeFile('./mathblogging.org/' + category + '.xml', xml, function(err) {
     if (err) {
-      console.log('error: couldn\'t write Feed for Category: ' + cat);
+      console.log('error: couldn\'t write Feed for Category: ' + category);
       return console.log(err);
     }
-    console.log('SUCCESS: "Feed" was saved for Category: ' + cat);
+    console.log('SUCCESS: Feed saved for Category: ' + category);
   });
-  // fs.writeFile('./mathblogging.org/' + cat + '.xml', theFeed.render('atom-1.0'));
 
-  return true;
-  //end module
+  return;
 };
