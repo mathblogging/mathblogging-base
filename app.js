@@ -40,6 +40,21 @@ FeedsJson = JSON.parse(fs.readFileSync('./feeds.json', 'utf8'));
 
 var categories = [];
 createCategories(FeedsJson, categories);
+
+var sidebar = '<nav id="categories">\n';
+for (var c = 0; c < categories.length; c++){
+  var cat = categories[c];
+  sidebar += '<a href="{{ site.baseurl }}/' + cat + '.html">' + cat + '</a>\n';
+}
+sidebar += '</nav>';
+fs.writeFile('./mathblogging.org/_includes/sidebar-secondary.html', sidebar, function(err) {
+  'use strict';
+  if (err) {
+    console.log('error: couldn\'t write Sidebar');
+    return console.log(err);
+  }
+  console.log('SUCCESS: Sidebar saved');
+});
 // console.log(categories);
 var catFeedsJson = categories.map(filterFeedJson);
 catFeedsJson.push({ 'category': 'Posts', 'blogs': FeedsJson.blogs});
