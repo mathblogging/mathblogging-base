@@ -66,8 +66,11 @@
     "url": "http://www.matrix67.com/blog/feed",
     "categories": ["Pure Math Research"]
   }, {
+    "url": "http://lttt.blog.ustc.edu.cn/?feed=rss2",
+    "categories": ["Pure Math Research"]
+  }, {
     "url": "http://errorstatistics.com/feed/",
-    "categories": ["Pure Math Research", "Math Journalism"]
+    "categories": ["Pure Math Research", "Math Journalism", "Editors' Blog Roll"]
   }, {
     "url": "http://emergentmath.com/feed/",
     "categories": ["Math Teaching", "Math Ed Research"]
@@ -79,7 +82,7 @@
     "categories": ["Math Journalism", "Recreational Math"]
   }, {
     "url": "http://jd2718.org/feed/",
-    "categories": ["Math Teaching", "Administration life"]
+    "categories": ["Math Teaching","Administation life"]
   }, {
     "url": "http://vknight.org/unpeudemath/feed.xml",
     "categories": ["Applied Math Research", "Math Teaching"]
@@ -256,13 +259,13 @@
     "categories": ["Math Teaching"]
   }, {
     "url": "http://profkeithdevlin.wordpress.com/feed/",
-    "categories": ["Math Journalism", "Recreational Math"]
+    "categories": ["Math Journalism", "Recreational Math", "Editors' Blog Roll"]
   }, {
     "url": "http://retractionwatch.wordpress.com/feed/",
     "categories": ["Math Journalism"]
   }, {
     "url": "http://www.scottaaronson.com/blog/?feed=rss2",
-    "categories": ["Applied Math Research", "Pure Math Research"]
+    "categories": ["Applied Math Research", "Pure Math Research", "Editors' Blog Roll"]
   }, {
     "url": "https://qedinsight.wordpress.com/feed/",
     "categories": ["Math Teaching", "Math at School"]
@@ -283,10 +286,10 @@
     "categories": ["Math Teaching", "Math at School"]
   }, {
     "url": "http://symmetricblog.wordpress.com/feed/",
-    "categories": ["Math Teaching", "Editors' Blogroll"]
+    "categories": ["Math Teaching","Editors' Blog Roll"]
   }, {
     "url": "http://maamathedmatters.blogspot.com/feeds/posts/default",
-    "categories": ["Math Teaching", "Math Ed Research"]
+    "categories": ["Math Teaching", "Math Ed Research", "Editors' Blog Roll"]
   }, {
     "url": "http://feeds2.feedburner.com/roice",
     "categories": ["Visual Math"]
@@ -394,7 +397,7 @@
     "categories": ["Math Teaching"]
   }, {
     "url": "http://mikesmathpage.wordpress.com/feed/",
-    "categories": ["Math Teaching", "Editor's Blog Roll"]
+    "categories": ["Math Teaching", "Editors' Blog Roll"]
   }, {
     "url": "http://mathgarage.wordpress.com/feed/",
     "categories": ["Math Teaching", "Math at School"]
@@ -406,7 +409,7 @@
     "categories": ["Math journalism"]
   }, {
     "url": "http://rss.sciam.com/roots-of-unity/feed?format=xml",
-    "categories": ["Math Journalism", "Recreational Math"]
+    "categories": ["Math Journalism", "Recreational Math", "Editors' Blog Roll"]
   }, {
     "url": "http://visualizingmath.tumblr.com/rss",
     "categories": ["Visual Math"]
@@ -538,7 +541,7 @@
     "categories": ["Math Teaching"]
   }, {
     "url": "http://bit-player.org/feed",
-    "categories": ["Pure Math Research", "Recreational Math"]
+    "categories": ["Pure Math Research", "Recreational Math", "Editors' Blog Roll"]
   }, {
     "url": "https://byorgey.wordpress.com/feed/",
     "categories": ["Pure Math Research"]
@@ -748,7 +751,7 @@
     "categories": ["Pure Math Research"]
   }, {
     "url": "http://rjlipton.wordpress.com/feed/",
-    "categories": ["Pure Math Research", "Editor's Blog Roll"]
+    "categories": ["Pure Math Research","Editors' Blog Roll"]
   }, {
     "url": "http://www.moebiusnoodles.com/feed/rss/",
     "categories": ["Math Teaching"]
@@ -868,10 +871,10 @@
     "categories": ["Math Teaching"]
   }, {
     "url": "http://nesterko.com/blog/?feed=rss2",
-    "categories": ["Applied Math Research"]
+    "categories": ["Applied  Math Research"]
   }, {
     "url": "http://statisfaction.wordpress.com/feed/",
-    "categories": ["Applied Math Research"]
+    "categories": ["Applied  Math Research"]
   }, {
     "url": "http://thonyc.wordpress.com/feed/",
     "categories": ["Math History"]
@@ -895,7 +898,7 @@
     "categories": ["Math Teaching"]
   }, {
     "url": "http://devlinsangle.blogspot.com/feeds/posts/default",
-    "categories": ["Math Journalism", "Editor's Blog Roll"]
+    "categories": ["Math Journalism","Editors' Blog Roll"]
   }, {
     "url": "http://jwilder.edublogs.org/feed/",
     "categories": ["Math Teaching"]
@@ -1020,7 +1023,7 @@
     "url": "https://colleenyoung.wordpress.com/feed/",
     "categories": ["Math Teaching"]
   }, {
-    "url": "http://mathequalslove.blogspot.com/feeds/posts/default",
+    "url": "http://mathequalslove.blogspot.com/feeds/posts/default?alt\\x3drss",
     "categories": ["Math Teaching"]
   }, {
     "url": "http://mathfest.blogspot.com/feeds/posts/default",
@@ -1093,7 +1096,7 @@
     "categories": ["Math Teaching", "Academic Life"]
   }, {
     "url": "http://mathwithbaddrawings.com/feed/",
-    "categories": ["Math Teaching", "Editor's Blog Roll"]
+    "categories": ["Math Teaching","Editors' Blog Roll"]
   }, {
     "url": "http://blog.mrwaddell.net/feed",
     "categories": ["Math Teaching"]
