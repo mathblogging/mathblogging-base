@@ -124,8 +124,9 @@ module.exports = function() {
       if (e) {
         console.log(e);
       }
+      editorPage += '<p> <a href="editors-picks.xml">' + 'Grab the feed for our Editors\' Picks!</a></p>\n';
       fs.writeFile('./mathblogging.org/index.md', editorPage);
-      // console.log('SUCCESS: "Editors\' Picks Homepage" was saved!');
+      console.log('SUCCESS: "Editors\' Picks" saved!');
     });
 
   });
