@@ -1,11 +1,12 @@
 #! /usr/bin/env node
 
 var fs = require('fs');
-// var async = require('async'); // asyncjs for async stuff
+ var async = require('async'); // asyncjs for async stuff
 var feedFetchTrimmer = require('./feedFetchTrimmer.js');
 // process.setMaxListeners(0);
 fs.readFile('./feeds.json', 'utf8', function(err, data) {
   'use strict';
+  var q = async.queue(feedFetchTrimmer, 10);
   var FeedsJson = JSON.parse(data);
   var urls = [];
   for (var j = 0; j < FeedsJson.blogs.length; j++) {
@@ -17,14 +18,23 @@ fs.readFile('./feeds.json', 'utf8', function(err, data) {
   }
   // Feeds = JSON.parse(data);
   // var feed = Feeds.some;
-  var callback = function(e) {
-    if (e) {
-      console.log(e);
-      return;
-    }
-    console.log('something\'s odd, you expected an error but did not get one!');
+//  var callback = function(e) {
+//    if (e) {
+//      console.log(e);
+//      return;
+//    }
+//    console.log('something\'s odd, you expected an error but did not get one!');
+//  };
+  q.drain = function() {
+    console.log('all items have been processed');
   };
-  for (var i = 0; i < urls.length; i++) {
-      feedFetchTrimmer(urls[i], callback);
-  }
+  q.push(urls, function(error) {
+    if (error) {
+      console.log(error);
+    }
+    console.log('finished processing item');
+  });
+//  for (var i = 0; i < urls.length; i++) {
+//      feedFetchTrimmer(urls[i], callback);
+//  }
 });

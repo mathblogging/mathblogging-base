@@ -1,7 +1,7 @@
 /* eslint-env node */
 
 var FeedParser = require('feedparser'); // to parse feeds
-var request = require('request'); // TODO let's abstract this so that we can switch it out (e.g., to fs.readFile )
+var request = require('requestretry'); // TODO let's abstract this so that we can switch it out (e.g., to fs.readFile )
 var Feed = require('rss'); // to write feeds (but not necessary to require here because we should get a Feed object from app.js -- which seems wrong)
 var fs = require('fs');
 var iconv = require('iconv-lite');
@@ -65,10 +65,12 @@ var feedFetchTrimmer = function(feedUrl, callback) {
     url: feedUrl,
     headers: {
       'User-Agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_8_5) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/31.0.1650.63 Safari/537.36',
-      'accept': 'text/html,application/xhtml+xml',
-      timeout: 5000,
-      setMaxListeners: 10
-    }
+      'accept': 'text/html,application/xhtml+xml'},
+      timeout: 10000,
+      //setMaxListeners: 10,
+      maxAttempts: 10,   // (default) try 5 times 
+      retryDelay: 10000,  // (default) wait for 5s before trying again 
+      retryStrategy: request.RetryStrategies.HTTPOrNetworkError
   };
   var req = request(options);
 
@@ -146,6 +148,7 @@ var feedFetchTrimmer = function(feedUrl, callback) {
       console.log(feedUrl + ': Error. Writing to filesystem failed.');
       callback(err);
     }
+    callback();
     // console.log('SUCCESS: "' + filename + '" was saved!');
 });
   });
