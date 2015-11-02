@@ -28,11 +28,12 @@ fs.readFile('./feeds.json', 'utf8', function(err, data) {
   q.drain = function() {
     console.log('all items have been processed');
   };
-  q.push(urls, function(error) {
+  q.push(urls, function(error, warning) {
     if (error) {
       console.log(error);
     }
-    console.log('finished processing item');
+    if (warning) {console.log(warning); }
+    //console.log('finished processing item');
   });
 //  for (var i = 0; i < urls.length; i++) {
 //      feedFetchTrimmer(urls[i], callback);

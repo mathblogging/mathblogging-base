@@ -17,7 +17,7 @@ var feedFetchTrimmer = function(feedUrl, callback) {
   function done(err) {
     if (err) {
       console.log('Feedparser: ' + feedUrl + ' : ' + err);
-      callback(err);
+      callback(null, err);
       // return this.emit('error', new Error('Feedparser ERROR: ' + feedUrl + ' THREW ' + err + '\n'));
     }
     // return;
@@ -68,8 +68,8 @@ var feedFetchTrimmer = function(feedUrl, callback) {
       'accept': 'text/html,application/xhtml+xml'},
       timeout: 10000,
       //setMaxListeners: 10,
-      maxAttempts: 10,   // (default) try 5 times 
-      retryDelay: 10000,  // (default) wait for 5s before trying again 
+      maxAttempts: 10,   // (default) try 5 times
+      retryDelay: 10000,  // (default) wait for 5s before trying again
       retryStrategy: request.RetryStrategies.HTTPOrNetworkError
   };
   var req = request(options);
