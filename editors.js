@@ -26,7 +26,7 @@ module.exports = function() {
   var editors = ['MrHonner', 'fawnpnguyen', 'SheckyR', 'danaernst', 'pkrautz'];
 
   var editorFeed = new Feed({
-    title: 'Mathblogging.org -- Editor\'s Picks',
+    title: 'Mathblogging.org -- Editors\' Picks',
     description: 'Your one stop shop for mathematical blogs',
     pubDate: new Date(),
     link: 'http://mathblogging.org/',
