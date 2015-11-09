@@ -28,7 +28,7 @@ exports.pagewriter = function(cat, jsonFeed) {
       // }
       var item = resultFeed.items[i];
       // console.log(JSON.stringify(item));
-      newPart += '<li> ' + '<a class="entry-title" href="' + item.url + '">' + ' <time datetime="' + item.date + '" class="entry-date">' + item.date.toDateString() + '</time> ' + escapeMD(item.title) + '<span class="entry-blog">' + escapeMD(item.author) + '</span> </a> </li> \n';
+      newPart += '<li> ' + '<a class="entry-title" href="' + item.url + '">' + ' <time datetime="' + item.date + '" class="entry-date">' + item.date.toUTCString().substring(5, 16) + '</time> ' + escapeMD(item.title) + '<span class="entry-blog">' + escapeMD(item.author) + '</span> </a> </li> \n';
     }
     newPart += '\n </ul> \n ';
     newPart += '<p> <a href="' + category + '.xml">' + 'Grab the feed for ' + category + ' blogs!</a></p>\n';
@@ -36,7 +36,8 @@ exports.pagewriter = function(cat, jsonFeed) {
   };
 
   theOutput += addEntries(theFeed);
-  fs.writeFile('./mathblogging.org/' + category + '.html', theOutput, function(err) {
+  var filename = category.toLowerCase().replace(/ |'/g, '_');
+  fs.writeFile('./mathblogging.org/' + filename + '.html', theOutput, function(err) {
     if (err) {
       console.log('error: couldn\'t write HTML for Category: ' + category);
       return console.log(err);
@@ -47,7 +48,7 @@ exports.pagewriter = function(cat, jsonFeed) {
   var xml = theFeed.xml({
     indent: true
   });
-  fs.writeFile('./mathblogging.org/' + category + '.xml', xml, function(err) {
+  fs.writeFile('./mathblogging.org/' + filename + '.xml', xml, function(err) {
     if (err) {
       console.log('error: couldn\'t write Feed for Category: ' + category);
       return console.log(err);
