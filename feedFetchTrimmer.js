@@ -16,8 +16,7 @@ var feedFetchTrimmer = function(feedUrl, callback) {
   // Define our streams
   function done(err) {
     if (err) {
-      console.log('Feedparser: ' + feedUrl + ' : ' + err);
-      callback(null, err);
+      console.log('feedFetchTrimmer: ' + feedUrl + ' : ' + err);
       // return this.emit('error', new Error('Feedparser ERROR: ' + feedUrl + ' THREW ' + err + '\n'));
     }
     // return;
@@ -41,21 +40,21 @@ var feedFetchTrimmer = function(feedUrl, callback) {
         console.log('Feedparser: ' + feedUrl + ': Converting from charset %s to utf-8', charset);
         res = res.pipe(iconv.decodeStream(charset));
       } catch (err) {
-        callback(err);
+        console.log('feedFetchTrimmer: ' + feedUrl + ' : ' + err);
       }
     }
     return res;
   }
 
   function getParams(str) {
-    var params = str.split(';').reduce(function(params, param) {
+    var params = str.split(';').reduce(function(parameters, param) {
       var parts = param.split('=').map(function(part) {
         return part.trim();
       });
       if (parts.length === 2) {
-        params[parts[0]] = parts[1];
+        parameters[parts[0]] = parts[1];
       }
-      return params;
+      return parameters;
     }, {});
     return params;
   }
@@ -93,7 +92,6 @@ var feedFetchTrimmer = function(feedUrl, callback) {
   feedparser.on('error', done);
   feedparser.on('end', done);
   feedparser.on('meta', function() {
-    var stream = this;
     var meta = this.meta; // **NOTE** the "meta" is always available in the context of the feedparser instance
     var feedOptions = {
       title: meta.title,
@@ -109,7 +107,7 @@ var feedFetchTrimmer = function(feedUrl, callback) {
     };
 
     feedObject = new Feed(feedOptions);
-  })
+  });
   feedparser.on('readable', function() {
     // console.log(feedUrl);
     // This is where the action is!
@@ -121,7 +119,7 @@ var feedFetchTrimmer = function(feedUrl, callback) {
     while ((item = stream.read())) {
       var itemDate = item.pubdate || item.date;
       // console.log(cutoff, itemDate, cutoff < itemDate);
-      if (cutoff < itemDate) {
+      if ((cutoff < itemDate) && !(today < itemDate)) {
         var itemOptions = {
           date: itemDate,
           title: item.title,
@@ -145,8 +143,7 @@ var feedFetchTrimmer = function(feedUrl, callback) {
     // console.log(filename);
     fs.writeFile('./feeds/' + filename, xml, function(err) {
     if(err) {
-      console.log(feedUrl + ': Error. Writing to filesystem failed.');
-      callback(err);
+      console.log('feedFetchTrimmer: ' + feedUrl + ' : ' + err);
     }
     callback();
     // console.log('SUCCESS: "' + filename + '" was saved!');
