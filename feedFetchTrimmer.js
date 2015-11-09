@@ -1,14 +1,14 @@
 /* eslint-env node */
 
 var FeedParser = require('feedparser'); // to parse feeds
-var request = require('request'); // TODO let's abstract this so that we can switch it out (e.g., to fs.readFile )
+var request = require('requestretry'); // TODO let's abstract this so that we can switch it out (e.g., to fs.readFile )
 var Feed = require('rss'); // to write feeds (but not necessary to require here because we should get a Feed object from app.js -- which seems wrong)
 var fs = require('fs');
-var Iconv = require('iconv').Iconv;
+var iconv = require('iconv-lite');
 var zlib = require('zlib');
 var sanitize = require('sanitize-filename');
 
-var feedFetchTrimmer = function(feedUrl) {
+var feedFetchTrimmer = function(feedUrl, callback) {
   'use strict';
   // thanks to example from feedparser:
   //  done, maybeDecompress, maybeTranslate, getParams
@@ -16,10 +16,11 @@ var feedFetchTrimmer = function(feedUrl) {
   // Define our streams
   function done(err) {
     if (err) {
-      // console.log('Feedparser ERROR:' + feedUrl + 'THREW' + err);
-      throw err;
+      console.log('Feedparser: ' + feedUrl + ' : ' + err);
+      callback(null, err);
+      // return this.emit('error', new Error('Feedparser ERROR: ' + feedUrl + ' THREW ' + err + '\n'));
     }
-    return;
+    // return;
   }
 
   function maybeDecompress(res, encoding) {
@@ -33,18 +34,14 @@ var feedFetchTrimmer = function(feedUrl) {
   }
 
   function maybeTranslate(res, charset) {
-    var iconv;
-    // Use iconv if its not utf8 already.
+    // var iconv;
+    // Use iconv-lite if its not utf8 already.
     if (!iconv && charset && !/utf-*8/i.test(charset)) {
       try {
-        iconv = new Iconv(charset, 'utf-8');
-        console.log('Converting from charset %s to utf-8', charset);
-        iconv.on('error', done);
-        // If we're using iconv, stream will be the output of iconv
-        // otherwise it will remain the output of request
-        res = res.pipe(iconv);
+        console.log('Feedparser: ' + feedUrl + ': Converting from charset %s to utf-8', charset);
+        res = res.pipe(iconv.decodeStream(charset));
       } catch (err) {
-        res.emit('error', err);
+        callback(err);
       }
     }
     return res;
@@ -68,11 +65,12 @@ var feedFetchTrimmer = function(feedUrl) {
     url: feedUrl,
     headers: {
       'User-Agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_8_5) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/31.0.1650.63 Safari/537.36',
-      'accept': 'text/html,application/xhtml+xml',
-      timeout: 4000,
-      pool: false,
-      setMaxListeners: 100
-    }
+      'accept': 'text/html,application/xhtml+xml'},
+      timeout: 10000,
+      //setMaxListeners: 10,
+      maxAttempts: 10,   // (default) try 5 times
+      retryDelay: 10000,  // (default) wait for 5s before trying again
+      retryStrategy: request.RetryStrategies.HTTPOrNetworkError
   };
   var req = request(options);
 
@@ -83,7 +81,7 @@ var feedFetchTrimmer = function(feedUrl) {
   req.on('error', done);
   req.on('response', function(res) {
     if (res.statusCode !== 200) {
-      return this.emit('error', new Error('Bad status code'));
+      return this.emit('error' + req.url, new Error('Bad status code'));
     }
     var encoding = res.headers['content-encoding'] || 'identity',
       charset = getParams(res.headers['content-type'] || '').charset;
@@ -147,10 +145,11 @@ var feedFetchTrimmer = function(feedUrl) {
     // console.log(filename);
     fs.writeFile('./feeds/' + filename, xml, function(err) {
     if(err) {
-      console.log('hello error');
-        return console.log(err);
+      console.log(feedUrl + ': Error. Writing to filesystem failed.');
+      callback(err);
     }
-    console.log('SUCCESS: "' + filename + '" was saved!');
+    callback();
+    // console.log('SUCCESS: "' + filename + '" was saved!');
 });
   });
 };

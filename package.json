@@ -15,9 +15,7 @@
   "bugs": {
     "url": "https://github.com/mathblogging/mathblogging-base"
   },
-  "license": {
-    "type": "MIT"
-  },
+  "license": "MIT",
   "repository": {
     "type": "git",
     "url": "git://github.com/mathblogging/mathblogging-base.git"
@@ -27,9 +25,10 @@
     "autolinker": "^0.18.1",
     "feed": "^0.2.6",
     "feedparser": "^1.0.1",
-    "iconv": "^2.1.10",
+    "iconv-lite": "^0.4.13",
     "jspath": "^0.3.1",
     "request": "^2.55.0",
+    "requestretry": "^1.5.0",
     "rss": "^1.1.1",
     "sanitize-filename": "^1.4.2",
     "twit": "^2.1.0"

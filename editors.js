@@ -90,7 +90,7 @@ module.exports = function() {
           description: editorPicks[i].text,
           author: '@' + editor
         };
-        console.log(itemOptions);
+        // console.log(itemOptions);
         editorFeed.item(itemOptions);
       }
       callback(err);
@@ -101,10 +101,13 @@ module.exports = function() {
     if (error) {
       console.log(error);
     }
-    console.log(tweetIds);
+    // console.log(tweetIds);
     // turn this into a module? used everywhere...
     editorFeed.items.sort(function(a, b) { //sort by date for creating pages later
       return b.date - a.date;
+    });
+    tweetIds.sort(function(a, b){
+      return b - a;
     });
     var xml = editorFeed.xml({
       indent: true
@@ -114,15 +117,16 @@ module.exports = function() {
         console.log('error: couldn\'t write Editors\' Picks Feed');
         return console.log(err);
       }
-      console.log('SUCCESS: "Editors\' Feed" was saved!');
+      // console.log('SUCCESS: "Editors\' Feed" was saved!');
     });
     // this is stupid...
-    async.each(tweetIds, getEmbed, function(e) {
+    async.eachSeries(tweetIds, getEmbed, function(e) {
       if (e) {
         console.log(e);
       }
+      editorPage += '<p> <a href="editors-picks.xml">' + 'Grab the feed for our Editors\' Picks!</a></p>\n';
       fs.writeFile('./mathblogging.org/index.md', editorPage);
-      console.log('SUCCESS: "Editors\' Picks Homepage" was saved!');
+      console.log('SUCCESS: "Editors\' Picks" saved!');
     });
 
   });
