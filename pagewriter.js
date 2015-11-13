@@ -36,7 +36,7 @@ exports.pagewriter = function(cat, jsonFeed) {
   };
 
   theOutput += addEntries(theFeed);
-  var filename = category.toLowerCase().replace(/ |'/g, '_');
+  var filename = category.toLowerCase().replace(/ |'|&/g, '_');
   fs.writeFile('./mathblogging.org/' + filename + '.html', theOutput, function(err) {
     if (err) {
       console.log('error: couldn\'t write HTML for Category: ' + category);
