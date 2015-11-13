@@ -10,7 +10,8 @@ exports.pagewriter = function(cat, jsonFeed) {
   'use strict';
 
   var theFeed = jsonFeed;
-  var category = cat;
+  var category = cat.replace(/&/g, '&amp;');
+  var filename = cat.toLowerCase().replace(/ |'|&/g, '_');
   // console.log(category);
 
   var theOutput = '---\n' +
@@ -31,12 +32,11 @@ exports.pagewriter = function(cat, jsonFeed) {
       newPart += '<li> ' + '<a class="entry-title" href="' + item.url + '">' + ' <time datetime="' + item.date + '" class="entry-date">' + item.date.toUTCString().substring(5, 16) + '</time> ' + escapeMD(item.title) + '<span class="entry-blog">' + escapeMD(item.author) + '</span> </a> </li> \n';
     }
     newPart += '\n </ul> \n ';
-    newPart += '<p> <a href="' + category + '.xml">' + 'Grab the feed for ' + category + ' blogs!</a></p>\n';
+    newPart += '<p> <a href="' + filename + '.xml">' + 'Grab the feed for ' + category + ' blogs!</a></p>\n';
     return newPart;
   };
 
   theOutput += addEntries(theFeed);
-  var filename = category.toLowerCase().replace(/ |'|&/g, '_');
   fs.writeFile('./mathblogging.org/' + filename + '.html', theOutput, function(err) {
     if (err) {
       console.log('error: couldn\'t write HTML for Category: ' + category);

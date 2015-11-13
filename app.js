@@ -44,7 +44,7 @@ createCategories(FeedsJson, categories);
 var sidebar = '<nav id="categories">\n';
 for (var c = 0; c < categories.length; c++){
   var cat = categories[c];
-  var url = categories[c].toLowerCase().replace(/ |'|&/g, '_');
+  var url = cat.toLowerCase().replace(/ |'|&/g, '_');
   sidebar += '<a href="{{ site.baseurl }}/' + url + '.html">' + cat.replace(/&/g, '&amp;') + '</a>\n';
 }
 sidebar += '</nav>';
