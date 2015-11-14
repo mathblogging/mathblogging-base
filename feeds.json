@@ -79,7 +79,7 @@
     "categories": ["Secondary Education"]
   }, {
     "url": "http://vknight.org/unpeudemath/feed.xml",
-    "categories": ["Research", "Math Teaching"]
+    "categories": ["Research", "Higher Education"]
   }, {
     "url": "http://davidwees.com/feed/",
     "categories": ["Secondary Education"]
@@ -219,9 +219,6 @@
     "url": "http://thegeometryteacher.wordpress.com/feed/",
     "categories": ["Secondary Education"]
   }, {
-    "url": "http://lifethroughamathematicianseyes.wordpress.com/feed/",
-    "categories": ["Math At School"]
-  }, {
     "url": "http://spectatormaths.wordpress.com/feed/",
     "categories": ["Secondary Education"]
   }, {
@@ -323,11 +320,5 @@
   }, {
     "url": "http://rudimatematici-lescienze.blogautore.espresso.repubblica.it/feed/",
     "categories": ["Journalism"]
-  }, {
-    "url": "http://feeds.feedburner.com/Math-journalunderstandingMath",
-    "categories": ["Math Teaching"]
-  }, {
-    "url": "http://feeds.feedburner.com/MathStories?format=xml",
-    "categories": ["Math Teaching"]
   }]
 }
