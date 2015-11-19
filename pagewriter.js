@@ -37,7 +37,7 @@ exports.pagewriter = function(cat, jsonFeed) {
   };
 
   theOutput += addEntries(theFeed);
-  fs.writeFile('./mathblogging.org/' + filename + '.html', theOutput, function(err) {
+  fs.writeFile('./mathblogging.org/' + filename + '.html', theOutput, {mode:0o664}, function(err) {
     if (err) {
       console.log('error: couldn\'t write HTML for Category: ' + category);
       return console.log(err);
@@ -48,7 +48,7 @@ exports.pagewriter = function(cat, jsonFeed) {
   var xml = theFeed.xml({
     indent: true
   });
-  fs.writeFile('./mathblogging.org/' + filename + '.xml', xml, function(err) {
+  fs.writeFile('./mathblogging.org/' + filename + '.xml', xml, {mode:0o664}, function(err) {
     if (err) {
       console.log('error: couldn\'t write Feed for Category: ' + category);
       return console.log(err);
