@@ -40,6 +40,7 @@ FeedsJson = JSON.parse(fs.readFileSync('./feeds.json', 'utf8'));
 
 var categories = [];
 createCategories(FeedsJson, categories);
+categories.sort();
 
 var sidebar = '<nav id="categories">\n';
 for (var c = 0; c < categories.length; c++){
