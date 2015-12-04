@@ -12,11 +12,13 @@ var feedFetchTrimmer = function(feedUrl, callback) {
   'use strict';
   // thanks to example from feedparser:
   //  done, maybeDecompress, maybeTranslate, getParams
-
+  var error = {};
   // Define our streams
   function done(err) {
     if (err) {
-      console.log('feedFetchTrimmer: ' + feedUrl + ' : ' + err);
+      error = err;
+      console.log('feedFetchTrimmer: ' + feedUrl + ' : ' + error);
+      callback();
       // return this.emit('error', new Error('Feedparser ERROR: ' + feedUrl + ' THREW ' + err + '\n'));
     }
     // return;
@@ -64,12 +66,13 @@ var feedFetchTrimmer = function(feedUrl, callback) {
     url: feedUrl,
     headers: {
       'User-Agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_8_5) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/31.0.1650.63 Safari/537.36',
-      'accept': 'text/html,application/xhtml+xml'},
-      timeout: 10000,
-      //setMaxListeners: 10,
-      maxAttempts: 10,   // (default) try 5 times
-      retryDelay: 10000,  // (default) wait for 5s before trying again
-      retryStrategy: request.RetryStrategies.HTTPOrNetworkError
+      'accept': 'text/html,application/xhtml+xml'
+    },
+    timeout: 10000,
+    //setMaxListeners: 10,
+    maxAttempts: 10, // (default) try 5 times
+    retryDelay: 10000, // (default) wait for 5s before trying again
+    retryStrategy: request.RetryStrategies.HTTPOrNetworkError
   };
   var req = request(options);
 
@@ -132,22 +135,24 @@ var feedFetchTrimmer = function(feedUrl, callback) {
     }
   });
   feedparser.on('finish', function() {
-    feedObject.items.sort(function(a, b) { //sort by date for creating pages later
-      return b.date - a.date;
-    });
-    var xml = feedObject.xml({
-      indent: true
-    });
-    // console.log(xml);
-    var filename = sanitize(feedUrl) + '.xml';
-    // console.log(filename);
-    fs.writeFile('./feeds/' + filename, xml, function(err) {
-    if(err) {
-      console.log('feedFetchTrimmer: ' + feedUrl + ' : ' + err);
+    if (Object.keys(error).length > 0) {
+      feedObject.items.sort(function(a, b) { //sort by date for creating pages later
+        return b.date - a.date;
+      });
+      var xml = feedObject.xml({
+        indent: true
+      });
+      // console.log(xml);
+      var filename = sanitize(feedUrl) + '.xml';
+      // console.log(filename);
+      fs.writeFile('./feeds/' + filename, xml, function(err) {
+        if (err) {
+          console.log('feedFetchTrimmer: ' + feedUrl + ' : ' + err);
+        }
+        callback();
+        // console.log('SUCCESS: "' + filename + '" was saved!');
+      });
     }
-    callback();
-    // console.log('SUCCESS: "' + filename + '" was saved!');
-});
   });
 };
 

@@ -40,11 +40,13 @@ FeedsJson = JSON.parse(fs.readFileSync('./feeds.json', 'utf8'));
 
 var categories = [];
 createCategories(FeedsJson, categories);
+categories.sort();
 
 var sidebar = '<nav id="categories">\n';
 for (var c = 0; c < categories.length; c++){
   var cat = categories[c];
-  sidebar += '<a href="{{ site.baseurl }}/' + cat + '.html">' + cat + '</a>\n';
+  var url = cat.toLowerCase().replace(/ |'|&/g, '_');
+  sidebar += '<a href="{{ site.baseurl }}/' + url + '.html">' + cat.replace(/&/g, '&amp;') + '</a>\n';
 }
 sidebar += '</nav>';
 fs.writeFile('./mathblogging.org/_includes/sidebar-secondary.html', sidebar, function(err) {
