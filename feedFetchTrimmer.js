@@ -12,7 +12,7 @@ var feedFetchTrimmer = function(feedUrl, callback) {
   'use strict';
   // thanks to example from feedparser:
   //  done, maybeDecompress, maybeTranslate, getParams
-  var error = {};
+  var error = null;
   // Define our streams
   function done(err) {
     if (err) {
@@ -135,7 +135,7 @@ var feedFetchTrimmer = function(feedUrl, callback) {
     }
   });
   feedparser.on('finish', function() {
-    if (Object.keys(error).length > 0) {
+    if (!error) {
       feedObject.items.sort(function(a, b) { //sort by date for creating pages later
         return b.date - a.date;
       });
