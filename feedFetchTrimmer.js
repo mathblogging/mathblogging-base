@@ -145,7 +145,7 @@ var feedFetchTrimmer = function(feedUrl, callback) {
       // console.log(xml);
       var filename = sanitize(feedUrl) + '.xml';
       // console.log(filename);
-      fs.writeFile('./feeds/' + filename, xml, function(err) {
+      fs.writeFile('./feeds/' + filename, xml, {mode:0o664}, function(err) {
         if (err) {
           console.log('feedFetchTrimmer: ' + feedUrl + ' : ' + err);
         }
