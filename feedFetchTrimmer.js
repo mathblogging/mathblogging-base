@@ -18,13 +18,14 @@ var feedFetchTrimmer = function(feedUrl, callback) {
     if (err) {
       error = err;
       console.log('feedFetchTrimmer: ' + feedUrl + ' : ' + error);
-      callback();
+      //callback();
       // return this.emit('error', new Error('Feedparser ERROR: ' + feedUrl + ' THREW ' + err + '\n'));
     }
     // return;
   }
 
   function maybeDecompress(res, encoding) {
+
     var decompress;
     if (encoding.match(/\bdeflate\b/)) {
       decompress = zlib.createInflate();
@@ -149,10 +150,11 @@ var feedFetchTrimmer = function(feedUrl, callback) {
         if (err) {
           console.log('feedFetchTrimmer: ' + feedUrl + ' : ' + err);
         }
-        callback();
+        //callback();
         // console.log('SUCCESS: "' + filename + '" was saved!');
       });
     }
+    callback()
   });
 };
 
