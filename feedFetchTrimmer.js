@@ -12,19 +12,20 @@ var feedFetchTrimmer = function(feedUrl, callback) {
   'use strict';
   // thanks to example from feedparser:
   //  done, maybeDecompress, maybeTranslate, getParams
-  var error = {};
+  var error = null;
   // Define our streams
   function done(err) {
     if (err) {
       error = err;
       console.log('feedFetchTrimmer: ' + feedUrl + ' : ' + error);
-      callback();
+      //callback();
       // return this.emit('error', new Error('Feedparser ERROR: ' + feedUrl + ' THREW ' + err + '\n'));
     }
     // return;
   }
 
   function maybeDecompress(res, encoding) {
+
     var decompress;
     if (encoding.match(/\bdeflate\b/)) {
       decompress = zlib.createInflate();
@@ -135,7 +136,7 @@ var feedFetchTrimmer = function(feedUrl, callback) {
     }
   });
   feedparser.on('finish', function() {
-    if (Object.keys(error).length > 0) {
+    if (!error) {
       feedObject.items.sort(function(a, b) { //sort by date for creating pages later
         return b.date - a.date;
       });
@@ -145,14 +146,15 @@ var feedFetchTrimmer = function(feedUrl, callback) {
       // console.log(xml);
       var filename = sanitize(feedUrl) + '.xml';
       // console.log(filename);
-      fs.writeFile('./feeds/' + filename, xml, function(err) {
+      fs.writeFile('./feeds/' + filename, xml, {mode:0o664}, function(err) {
         if (err) {
           console.log('feedFetchTrimmer: ' + feedUrl + ' : ' + err);
         }
-        callback();
+        //callback();
         // console.log('SUCCESS: "' + filename + '" was saved!');
       });
     }
+    callback()
   });
 };
 
