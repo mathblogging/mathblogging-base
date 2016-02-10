@@ -64,6 +64,7 @@ module.exports = function() {
   var getEditor = function(editor, callback) {
     T.get('statuses/user_timeline', {
       'screen_name': editor,
+      include_rts: false,
       count: 180
     }, function(err, tweets) {
       // console.log(JSON.stringify(data));
@@ -72,7 +73,7 @@ module.exports = function() {
         var filterHash = el.entities.hashtags.filter(function(tag) {
           return (tag.text === 'mbpick') || (tag.text === 'mbpicks');
         });
-        return (filterHash.length > 0);
+        return (filterHash.length > 0 && !el.favorited);
       });
       for (var i = 0; i < editorPicks.length; i++) {
         tweetIds.push(editorPicks[i].id_str);
