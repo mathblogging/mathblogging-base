@@ -23,7 +23,7 @@ module.exports = function() {
 
   var T = new Twit(config);
 
-  var editors = ['MrHonner', 'fawnpnguyen', 'SheckyR', 'danaernst', 'pkrautz'];
+  var editors = ['MrHonner', 'fawnpnguyen', 'SheckyR', 'danaernst', 'pkrautz', 'ilaba'];
 
   var editorFeed = new Feed({
     title: 'Mathblogging.org -- Editors\' Picks',
