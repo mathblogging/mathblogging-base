@@ -29,7 +29,7 @@ exports.pagewriter = function(cat, jsonFeed) {
       // }
       var item = resultFeed.items[i];
       // console.log(JSON.stringify(item));
-      newPart += '<li> ' + '<a class="entry-title" href="' + item.url + '">' + ' <time datetime="' + item.date + '" class="entry-date">' + item.date.toUTCString().substring(5, 16) + '</time> ' + escapeMD(item.title) + '<span class="entry-blog">' + escapeMD(item.author) + '</span> </a> </li> \n';
+      newPart += '<li> ' + '<a class="entry-title" href="' + item.url + '" rel="nofollow">' + ' <time datetime="' + item.date + '" class="entry-date">' + item.date.toUTCString().substring(5, 16) + '</time> ' + escapeMD(item.title) + '<span class="entry-blog">' + escapeMD(item.author) + '</span> </a> </li> \n';
     }
     newPart += '\n </ul> \n ';
     newPart += '<p> <a href="' + filename + '.xml">' + 'Grab the feed for ' + category + ' blogs!</a></p>\n';

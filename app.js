@@ -66,7 +66,7 @@ var blogIndex = '---\n' +
   '<ul>\n';
 for (var b = 0; b < FeedsJson.blogs.length; b++){
   var blog = FeedsJson.blogs[b];
-  blogIndex += '  <li>\n    <a href="' + blog.url + '"> ' + blog.url + '</a>\n  </li>\n';
+  blogIndex += '  <li>\n    <a href="' + blog.url + '" rel="nofollow"> ' + blog.url + '</a>\n  </li>\n';
 }
 blogIndex += '</ul>\n';
 fs.writeFile('./mathblogging.org/blogindex.html', blogIndex, {mode:0o664}, function(err) {
