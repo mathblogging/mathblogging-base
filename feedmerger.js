@@ -9,6 +9,7 @@ var fs = require('fs');
 exports.feedmerger = function(feedsJson, feedObject, mergedCallback) {
   'use strict';
   // TODO some error handling; checking the arguments etc.
+  var guids = []; // store GUIDs to check against (to avoid duplicates)
 
   var getFeed = function(feed, callback) {
     var feedparser = new FeedParser();
@@ -45,16 +46,20 @@ exports.feedmerger = function(feedsJson, feedObject, mergedCallback) {
       //    var meta = this.meta; // **NOTE** the "meta" is always available in the context of the feedparser instance
       var item;
       while ( (item = stream.read())) {
-        var itemOptions = {
-          date: item.date,
-          title: item.title,
-          url: item.link,
-          guid: item.guid || item.permalink || '',
-          description: '',
-          author: stream.meta.title
-        };
-        // console.log(itemOptions);
-        feedObject.item(itemOptions);
+        var itemGuid = item.guid || item.permalink;
+        if (guids.indexOf(itemGuid) === -1) {
+          guids.push(itemGuid);
+          var itemOptions = {
+            date: item.date,
+            title: item.title,
+            url: encodeURI(item.link),
+            guid: itemGuid || '',
+            description: '',
+            author: stream.meta.title
+          };
+          // console.log(itemOptions);
+          feedObject.item(itemOptions);
+        }
       }
     });
     feedparser.on('finish', function() {
