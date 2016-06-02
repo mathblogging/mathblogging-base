@@ -100,9 +100,9 @@ var feedFetchTrimmer = function(feedUrl, callback) {
     var feedOptions = {
       title: meta.title,
       description: meta.description,
-      link: meta.link,
       pubDate: meta.date,
       feed_url: meta.xmlurl,
+      site_url: meta.link,
       // image: meta.image.url,
       copyright: meta.copyright,
       // feedObject.author.email = meta.author.email;
