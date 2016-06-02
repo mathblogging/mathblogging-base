@@ -729,7 +729,7 @@
         "url": "http://mattersmathematical.wordpress.com/feed/",
         "categories": ["Higher Education"]
     }, {
-        "url": "http://acmescience.com/feed/",
+        "url": "http://minds.acmescience.com/?feed=rss2",
         "categories": ["Journalism"]
     }, {
         "url": "http://uofmath.wordpress.com/feed/",
