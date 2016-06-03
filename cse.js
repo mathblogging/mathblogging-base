@@ -10,8 +10,9 @@ fs.readdir('./feeds/',function(err,files){
         // console.log(data);
         var matches = /<link>(.*)<\/link>/.exec(data);
         // console.log(matches);
-        try{console.log(matches[1]);}
-        catch(e){}
+        if(console.log(matches[1]) !== 'http://github.com/dylang/node-rss'){
+          console.log(matches[1]);
+        }
       });
     });
  });
