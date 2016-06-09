@@ -118,7 +118,7 @@ var feedFetchTrimmer = function(feedUrl, callback) {
     var stream = this;
 
     var today = new Date();
-    var cutoff = new Date(today.getTime() - 31 * 24 * 60 * 60 * 1000); // only posts from past 30 days (ignoring leap seconds etc.)
+    var cutoff = new Date(today.getTime() - 31 * 24 * 60 * 60 * 1000); // only posts from past 31 days (ignoring leap seconds etc.)
     var item;
     while ((item = stream.read())) {
       var itemDate = item.pubdate || item.date;

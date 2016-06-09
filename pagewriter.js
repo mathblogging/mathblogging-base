@@ -22,16 +22,20 @@ exports.pagewriter = function(cat, jsonFeed) {
 
   var addEntries = function(resultFeed) {
     //   console.log(resultFeed.title);
-    var newPart = '<ul class="entry-list"> \n ';
+    var newPart = '';
     for (var i in resultFeed.items) {
       // if (i > 9) {
       //   break;
       // }
       var item = resultFeed.items[i];
-      // console.log(JSON.stringify(item));
-      newPart += '<li> ' + '<a class="entry-title" href="' + item.url + '" rel="nofollow">' + ' <time datetime="' + item.date + '" class="entry-date">' + item.date.toUTCString().substring(5, 16) + '</time> ' + escapeMD(item.title) + '<span class="entry-blog">' + escapeMD(item.author) + '</span> </a> </li> \n';
+      var today = new Date();
+      var cutoff = new Date(today.getTime() - 31 * 24 * 60 * 60 * 1000); // only posts from past 31 days (ignoring leap seconds etc.)
+      var itemDate = item.date;
+      if ((cutoff < itemDate) && !(today < itemDate)) {
+        newPart += '  <li> ' + '<a class="entry-title" href="' + item.url + '" rel="nofollow">' + ' <time datetime="' + itemDate + '" class="entry-date">' + itemDate.toUTCString().substring(5, 16) + '</time> ' + escapeMD(item.title) + '<span class="entry-blog">' + escapeMD(item.author) + '</span> </a> </li> \n';
+      }
     }
-    newPart += '\n </ul> \n ';
+    newPart = '<ul class="entry-list"> \n' + newPart + '</ul>\n';
     newPart += '<p> <a href="' + filename + '.xml">' + 'Grab the feed for ' + category + ' blogs!</a></p>\n';
     return newPart;
   };
