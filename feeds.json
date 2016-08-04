@@ -846,9 +846,6 @@
         "url": "http://feeds.feedburner.com/blogspot/OFocE?format=xml",
         "categories": ["Secondary Education"]
     }, {
-        "url": "http://feed43.com/1780588322182203.xml",
-        "categories": ["Research", "Higher Education"]
-    }, {
         "url": "http://samjshah.com/feed/",
         "categories": ["Secondary Education"]
     }, {
@@ -1006,7 +1003,7 @@
         "categories": ["Secondary Education"]
     }, {
         "url": "http://poetrywithmathematics.blogspot.com/feeds/posts/default",
-        "categories": ["Art"]
+        "categories": ["Art", "Sciences&Humanities"]
     }, {
         "url": "http://musingmathematically.blogspot.com/feeds/posts/default",
         "categories": ["Secondary Education"]
@@ -1985,5 +1982,14 @@
     }, {
         "url": "http://relprime.com/feed/",
         "categories": ["Journalism"]
+    }, {
+        "url": "https://pointatinfinityblog.wordpress.com/feed/",
+        "categories": ["Research"]
+    }, {
+        "url": "http://blogs.adelaide.edu.au/maths-learning/feed/",
+        "categories": ["Research", "Math Ed Research"]
+    }, {
+        "url": "https://bakingandmath.com/feed/",
+        "categories": ["Research", "Higher Education"]
     }]
 }
