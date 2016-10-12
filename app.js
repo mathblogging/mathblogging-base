@@ -57,6 +57,26 @@ fs.writeFile('./mathblogging.org/_includes/sidebar-secondary.html', sidebar, fun
   }
   console.log('SUCCESS: Sidebar saved');
 });
+
+var blogIndex = '---\n' +
+  'layout: page\n' +
+  'title: Blog Index \n' +
+  '---\n\n' +
+  '<p>This page lists all feeds we aggregate for mathblogging.org. If yours is not listed or out-of-date, please <a href="mailto:mathblogging.network@gmail.com">write us an email</a> or send us a tweet <a href="https://twitter.com/mathblogging">@mathblogging</a>.</p>\n' +
+  '<ul>\n';
+for (var b = 0; b < FeedsJson.blogs.length; b++){
+  var blog = FeedsJson.blogs[b];
+  blogIndex += '  <li>\n    <a href="' + blog.url + '" rel="nofollow"> ' + blog.url + '</a>\n  </li>\n';
+}
+blogIndex += '</ul>\n';
+fs.writeFile('./mathblogging.org/blogindex.html', blogIndex, {mode:0o664}, function(err) {
+  if (err) {
+    console.log('error: couldn\'t write BlogIndex');
+    return console.log(err);
+  }
+  console.log('SUCCESS: BlogIndex saved');
+});
+
 // console.log(categories);
 var catFeedsJson = categories.map(filterFeedJson);
 catFeedsJson.push({ 'category': 'Posts', 'blogs': FeedsJson.blogs});

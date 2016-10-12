@@ -69,10 +69,10 @@ var feedFetchTrimmer = function(feedUrl, callback) {
       'User-Agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_8_5) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/31.0.1650.63 Safari/537.36',
       'accept': 'text/html,application/xhtml+xml'
     },
-    timeout: 10000,
+    timeout: 3000,
     //setMaxListeners: 10,
-    maxAttempts: 10, // (default) try 5 times
-    retryDelay: 10000, // (default) wait for 5s before trying again
+    maxAttempts: 3, // (default) try 5 times
+    retryDelay: 1000, // (default) wait for 5s before trying again
     retryStrategy: request.RetryStrategies.HTTPOrNetworkError
   };
   var req = request(options);
@@ -100,9 +100,9 @@ var feedFetchTrimmer = function(feedUrl, callback) {
     var feedOptions = {
       title: meta.title,
       description: meta.description,
-      link: meta.link,
       pubDate: meta.date,
       feed_url: meta.xmlurl,
+      site_url: meta.link,
       // image: meta.image.url,
       copyright: meta.copyright,
       // feedObject.author.email = meta.author.email;
@@ -118,7 +118,7 @@ var feedFetchTrimmer = function(feedUrl, callback) {
     var stream = this;
 
     var today = new Date();
-    var cutoff = new Date(today.getTime() - 31 * 24 * 60 * 60 * 1000); // only posts from past 30 days (ignoring leap seconds etc.)
+    var cutoff = new Date(today.getTime() - 31 * 24 * 60 * 60 * 1000); // only posts from past 31 days (ignoring leap seconds etc.)
     var item;
     while ((item = stream.read())) {
       var itemDate = item.pubdate || item.date;

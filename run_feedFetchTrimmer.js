@@ -6,7 +6,7 @@ var feedFetchTrimmer = require('./feedFetchTrimmer.js');
 // process.setMaxListeners(0);
 fs.readFile('./feeds.json', 'utf8', function(err, data) {
   'use strict';
-  var q = async.queue(feedFetchTrimmer, 10);
+  var q = async.queue(feedFetchTrimmer, 5);
   var FeedsJson = JSON.parse(data);
   var urls = [];
   for (var j = 0; j < FeedsJson.blogs.length; j++) {
