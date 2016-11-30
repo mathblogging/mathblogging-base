@@ -3,7 +3,7 @@
         "url": "https://www.peterkrautzberger.org/atom.xml",
         "categories": ["Research", "Technology"]
     }, {
-        "url": "http://boolesrings.org/scoskey/feed",
+        "url": "https://scoskey.github.io/feed/",
         "categories": ["Research", "Higher Education"]
     }, {
         "url": "http://feeds.feedburner.com/proofsfromthebook?format=xml",
@@ -1974,7 +1974,7 @@
         "url": "http://www.mathematik-akademie.de/blog/?feed=rss",
         "categories": ["Higher Education"]
     }, {
-        "url": "http://boisemathcircles.org/feed",
+        "url": "http://boisemathcircles.org/feed/",
         "categories": ["Secondary Education"]
     }, {
         "url": "http://www.carmelschettino.org/wp/feed/",

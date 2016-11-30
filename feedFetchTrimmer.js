@@ -15,6 +15,7 @@ var feedFetchTrimmer = function(feedUrl, callback) {
   var error = null;
   // Define our streams
   function done(err) {
+    console.log( "in done function for: " + feedUrl );
     if (err) {
       error = err;
       console.log('feedFetchTrimmer: ' + feedUrl + ' : ' + error);
