@@ -25,10 +25,8 @@
     "autolinker": "^0.18.1",
     "feed": "^0.2.6",
     "feedparser": "^1.0.1",
-    "iconv-lite": "^0.4.13",
+    "got": "^6.6.3",
     "jspath": "^0.3.1",
-    "request": "^2.55.0",
-    "requestretry": "^1.5.0",
     "rss": "^1.1.1",
     "sanitize-filename": "^1.4.2",
     "twit": "^2.1.0"
