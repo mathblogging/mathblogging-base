@@ -6,7 +6,8 @@ const sanitize = require('sanitize-filename');
 const editorpicks = require('./editors.js');
 editorpicks();
 
-const createCategories = function (feedsJson, categories){
+const createCategories = function (feedsJson){
+  const categories = []
   for (let blog of feedsJson.blogs){
     for (let category of blog.categories){
       if (!(categories.indexOf(category) > -1)){
@@ -14,6 +15,7 @@ const createCategories = function (feedsJson, categories){
       }
     }
   }
+  return categories;
 };
 
 
@@ -30,8 +32,7 @@ const filterFeedJson = function (category) {
 
 const FeedsJson = JSON.parse(fs.readFileSync('./feeds.json', 'utf8'));
 
-const categories = [];
-createCategories(FeedsJson, categories);
+const categories = createCategories(FeedsJson);
 categories.sort();
 
 let sidebar = '<nav id="categories">\n';
