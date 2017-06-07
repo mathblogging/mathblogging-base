@@ -1,19 +1,14 @@
-var fs = require('fs');
-var Feed = require('rss'); // to create feed objects and
-var feedmerger = require('./feedmerger.js').feedmerger;
-var pagewriter = require('./pagewriter.js').pagewriter;
-var sanitize = require('sanitize-filename');
-var editorpicks = require('./editors.js');
+const fs = require('fs');
+const Feed = require('rss'); // to create feed objects and
+const feedmerger = require('./feedmerger.js').feedmerger;
+const pagewriter = require('./pagewriter.js').pagewriter;
+const sanitize = require('sanitize-filename');
+const editorpicks = require('./editors.js');
 editorpicks();
 
-var FeedsJson = {};
-
-var createCategories = function (feedsJson, categories){
-  'use strict';
-  for (var j = 0; j < feedsJson.blogs.length; j++){
-    var blog = feedsJson.blogs[j];
-    for (var k = 0; k < blog.categories.length; k++){
-      var category = blog.categories[k];
+const createCategories = function (feedsJson, categories){
+  for (let blog of feedsJson.blogs){
+    for (let category of blog.categories){
       if (!(categories.indexOf(category) > -1)){
         categories.push(category);
       }
@@ -22,31 +17,27 @@ var createCategories = function (feedsJson, categories){
 };
 
 
-var filterFeedJson = function (category) {
-  'use strict';
-  var categoryFeeds = { 'category': category, 'blogs': [] };
-  var blogs = categoryFeeds.blogs;
-  for (var i = 0; i < FeedsJson.blogs.length; i++) {
-    var blog = FeedsJson.blogs[i];
+const filterFeedJson = function (category) {
+  const categoryFeeds = { 'category': category, 'blogs': [] };
+  for (let blog of FeedsJson.blogs) {
     if (blog.categories.indexOf(category) > -1){
-      blogs.push(blog);
+      categoryFeeds.blogs.push(blog);
     }
   }
   return categoryFeeds;
 };
 
 
-FeedsJson = JSON.parse(fs.readFileSync('./feeds.json', 'utf8'));
+const FeedsJson = JSON.parse(fs.readFileSync('./feeds.json', 'utf8'));
 
-var categories = [];
+const categories = [];
 createCategories(FeedsJson, categories);
 categories.sort();
 
-var sidebar = '<nav id="categories">\n';
-for (var c = 0; c < categories.length; c++){
-  var cat = categories[c];
-  var url = cat.toLowerCase().replace(/ |'|&/g, '_');
-  sidebar += '<a href="{{ site.baseurl }}/' + url + '.html">' + cat.replace(/&/g, '&amp;') + '</a>\n';
+let sidebar = '<nav id="categories">\n';
+for (let category of categories){
+  const url = category.toLowerCase().replace(/ |'|&/g, '_');
+  sidebar += '<a href="{{ site.baseurl }}/' + url + '.html">' + category.replace(/&/g, '&amp;') + '</a>\n';
 }
 sidebar += '</nav>';
 fs.writeFile('./mathblogging.org/_includes/sidebar-secondary.html', sidebar, function(err) {
@@ -58,14 +49,13 @@ fs.writeFile('./mathblogging.org/_includes/sidebar-secondary.html', sidebar, fun
   console.log('SUCCESS: Sidebar saved');
 });
 
-var blogIndex = '---\n' +
+let blogIndex = '---\n' +
   'layout: page\n' +
   'title: Blog Index \n' +
   '---\n\n' +
   '<p>This page lists all feeds we aggregate for mathblogging.org. If yours is not listed or out-of-date, please <a href="mailto:mathblogging.network@gmail.com">write us an email</a> or send us a tweet <a href="https://twitter.com/mathblogging">@mathblogging</a>.</p>\n' +
   '<ul>\n';
-for (var b = 0; b < FeedsJson.blogs.length; b++){
-  var blog = FeedsJson.blogs[b];
+for (let blog of FeedsJson.blogs){
   blogIndex += '  <li>\n    <a href="' + blog.url + '" rel="nofollow"> ' + blog.url + '</a>\n  </li>\n';
 }
 blogIndex += '</ul>\n';
@@ -77,23 +67,20 @@ fs.writeFile('./mathblogging.org/blogindex.html', blogIndex, {mode:0o664}, funct
   console.log('SUCCESS: BlogIndex saved');
 });
 
-// console.log(categories);
-var catFeedsJson = categories.map(filterFeedJson);
-catFeedsJson.push({ 'category': 'Posts', 'blogs': FeedsJson.blogs});
-// console.log(JSON.stringify(catFeedsJson));
+const categoriesFeedJson = categories.map(filterFeedJson);
+categoriesFeedJson.push({ 'category': 'Posts', 'blogs': FeedsJson.blogs});
 
-var filterUrl = function(blogObject) {
+const filterUrl = function(blogObject) {
   'use strict';
   return './feeds/' + sanitize(blogObject.url) + '.xml';
 };
 
-for (var j = 0; j < catFeedsJson.length; j++){
-  var catFeedJson = catFeedsJson[j];
-  var category = catFeedJson.category;
+for (let categoryFeedJson of categoriesFeedJson){
+  const category = categoryFeedJson.category;
   // console.log(category);
-  var catFeedURLs = catFeedJson.blogs.map(filterUrl);
+  const catFeedURLs = categoryFeedJson.blogs.map(filterUrl);
   // console.log(catFeedURLs);
-  var catFeed = new Feed({
+  const catFeed = new Feed({
     title: 'Mathblogging.org -- ' + category,
     description: 'Your one stop shop for mathematical blogs',
     pubDate: new Date(),
