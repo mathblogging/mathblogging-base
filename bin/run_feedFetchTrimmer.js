@@ -2,9 +2,9 @@
 
 var fs = require('fs');
  var async = require('async'); // asyncjs for async stuff
-var feedFetchTrimmer = require('./feedFetchTrimmer.js');
+var feedFetchTrimmer = require('../lib/feedFetchTrimmer.js');
 // process.setMaxListeners(0);
-fs.readFile('./feeds.json', 'utf8', function(err, data) {
+fs.readFile('../data/feeds.json', 'utf8', function(err, data) {
   'use strict';
   var q = async.queue(feedFetchTrimmer, 5);
   var FeedsJson = JSON.parse(data);
