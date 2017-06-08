@@ -120,17 +120,11 @@
         "url": "http://feeds.feedburner.com/ImpossibleWorldSiteBlog",
         "categories": ["Art"]
     }, {
-        "url": "http://feeds.feedburner.com/mrlsmath",
-        "categories": ["Secondary Education"]
-    }, {
         "url": "http://feeds.feedburner.com/MathEdBlog",
         "categories": ["Secondary Education", "Primary Education"]
     }, {
         "url": "http://feeds.feedburner.com/ProbablyOverthinkingIt",
         "categories": ["Research"]
-    }, {
-        "url": "http://www.teachmathfree.com/feed",
-        "categories": ["Secondary Education", "Primary Education"]
     }, {
         "url": "https://rigtriv.wordpress.com/feed/",
         "categories": ["Research"]
@@ -150,9 +144,6 @@
         "url": "http://tcsmath.org/feed/",
         "categories": ["Research"]
     }, {
-        "url": "http://twofoldgaze.com/feed/",
-        "categories": ["Research"]
-    }, {
         "url": "http://theronhitchman.blogspot.com/feeds/posts/default",
         "categories": ["Research"]
     }, {
@@ -168,9 +159,6 @@
         "url": "http://www.math3ma.com/mathema?format=RSS",
         "categories": ["Research"]
     }, {
-        "url": "http://feynmanliang.com/rss/",
-        "categories": ["Research", "Technology"]
-    }, {
         "url": "http://mythagon.wordpress.com/feed/",
         "categories": ["Art", "Recreational"]
     }, {
@@ -182,9 +170,6 @@
     }, {
         "url": "https://edwardfhughes.wordpress.com/feed/",
         "categories": ["Research", "Research"]
-    }, {
-        "url": "http://ambercaldwell.com/feed/",
-        "categories": ["Secondary Education"]
     }, {
         "url": "http://mathjokes4mathyfolks.wordpress.com/feed",
         "categories": ["Recreational", "Art"]
@@ -237,7 +222,7 @@
         "url": "http://www.konradvoelkel.com/feed/",
         "categories": ["Research"]
     }, {
-        "url": "http://web.ece.rice.edu/richb/feed/",
+        "url": "http://richb.rice.edu/feed/",
         "categories": ["Research"]
     }, {
         "url": "http://symmetricblog.wordpress.com/feed/",
@@ -420,7 +405,7 @@
         "url": "http://danaernst.com/feed/",
         "categories": ["Research", "Math Ed Research"]
     }, {
-        "url": "http://checkmyworking.com/feed/",
+        "url": "https://www.checkmyworking.com/rss.xml",
         "categories": ["Research", "Recreational"]
     }, {
         "url": "http://aperiodical.com/category/columns/travels-in-a-mathematical-world/feed/",
@@ -437,9 +422,6 @@
     }, {
         "url": "http://blogs.ams.org/onthemarket/feed/",
         "categories": ["Higher Education"]
-    }, {
-        "url": "http://www.huffingtonpost.com/author/index.php?author=dr-keith-devlin",
-        "categories": ["Journalism"]
     }, {
         "url": "http://danielwalsh.tumblr.com/rss",
         "categories": ["Art", "Art"]
@@ -526,9 +508,6 @@
         "categories": ["Publisher"]
     }, {
         "url": "http://matroidunion.org/?feed=rss2",
-        "categories": ["Research"]
-    }, {
-        "url": "http://www.lindonslog.com/category/mathematics/feed/",
         "categories": ["Research"]
     }, {
         "url": "http://blogs.ams.org/visualinsight/feed/",
@@ -732,9 +711,6 @@
         "url": "http://minds.acmescience.com/?feed=rss2",
         "categories": ["Journalism"]
     }, {
-        "url": "http://uofmath.wordpress.com/feed/",
-        "categories": ["Research", "Higher Education"]
-    }, {
         "url": "http://openmathbook.blogspot.com/feeds/posts/default",
         "categories": ["Higher Education"]
     }, {
@@ -813,9 +789,6 @@
         "url": "http://jwilder.edublogs.org/feed/",
         "categories": ["Primary Education", "Recreational"]
     }, {
-        "url": "http://fivetriangles.blogspot.com/feeds/posts/default",
-        "categories": ["Recreational"]
-    }, {
         "url": "http://homotopytypetheory.org/feed/",
         "categories": ["Research"]
     }, {
@@ -827,9 +800,6 @@
     }, {
         "url": "http://feeds.feedburner.com/CtkInsights",
         "categories": ["Secondary Education", "Higher Education"]
-    }, {
-        "url": "http://www.doingmathematics.com/2/feed",
-        "categories": ["Secondary Education"]
     }, {
         "url": "http://craftymathed.blogspot.com/feeds/posts/default",
         "categories": ["Secondary Education"]
@@ -876,7 +846,7 @@
         "url": "http://mathtango.blogspot.com/feeds/posts/default",
         "categories": ["Journalism", "Higher Education"]
     }, {
-        "url": "http://www.kenthaines.com/blog/atom.xml",
+        "url": "http://www.kenthaines.com/blog?format=rss",
         "categories": ["Secondary Education"]
     }, {
         "url": "http://www.mathycathy.com/blog/feed/",
@@ -1113,9 +1083,6 @@
         "url": "http://feeds.feedburner.com/mindyourdecisions?format=xml",
         "categories": ["Recreational", "Editors' Favorites"]
     }, {
-        "url": "http://mtsmc.blogspot.com/feeds/posts/default",
-        "categories": ["Recreational"]
-    }, {
         "url": "http://mathlesstraveled.com/feed/",
         "categories": ["Research"]
     }, {
@@ -1181,9 +1148,6 @@
     }, {
         "url": "http://www.earthcalculus.com/feed/",
         "categories": ["Higher Education"]
-    }, {
-        "url": "http://mindfuckmath.com/rss",
-        "categories": ["Recreational"]
     }, {
         "url": "http://www.resourceaholic.com/feeds/posts/default",
         "categories": ["Secondary Education"]
@@ -1277,9 +1241,6 @@
     }, {
         "url": "http://coremath912.blogspot.com/feeds/posts/default",
         "categories": ["Secondary Education"]
-    }, {
-        "url": "http://www.arsmathematica.net/feed/",
-        "categories": ["Research"]
     }, {
         "url": "https://clopendebate.wordpress.com/feed/",
         "categories": ["Secondary Education"]
@@ -1545,7 +1506,7 @@
         "url": "http://systems-signals.blogspot.com/feeds/posts/default",
         "categories": ["Research"]
     }, {
-        "url": "http://11011110.livejournal.com/data/rss",
+        "url": "https://11011110.github.io/blog/feed.xml",
         "categories": ["Research"]
     }, {
         "url": "http://wiskundeleraar.blogspot.com/feeds/posts/default",
@@ -1556,9 +1517,6 @@
     }, {
         "url": "http://blog.sigfpe.com/feeds/posts/default",
         "categories": ["Research"]
-    }, {
-        "url": "http://carnavaldematematicas.bligoo.es/rss/node",
-        "categories": ["Journalism"]
     }, {
         "url": "http://puntmat.blogspot.com/feeds/posts/default",
         "categories": ["Primary Education"]
@@ -1628,9 +1586,6 @@
     }, {
         "url": "http://golem.ph.utexas.edu/~distler/blog/atom10.xml",
         "categories": ["Research"]
-    }, {
-        "url": "http://www.cosmolearning.com/rss/latest-videos-added/mathematics/",
-        "categories": ["Recreational"]
     }, {
         "url": "http://hdambeck.de/feed/",
         "categories": ["Journalism"]
@@ -1727,9 +1682,6 @@
     }, {
         "url": "http://evanweinberg.com/feed/",
         "categories": ["Secondary Education", "Primary Education"]
-    }, {
-        "url": "http://www.sumsar.net/atom.xml",
-        "categories": ["Research", "Technology"]
     }, {
         "url": "http://www.jerimiannwalker.com/feed/",
         "categories": ["Higher Education"]
@@ -1988,5 +1940,20 @@
     }, {
         "url": "https://bakingandmath.com/feed/",
         "categories": ["Research", "Higher Education"]
+    }, {
+        "url": "http://trigonography.com/feed/",
+        "categories": ["Art", "Recreational"]
+    }, {
+        "url": "https://www.simiode.org/blog/feed.rss",
+        "categories": ["Research", "Higher Education"]
+    }, {
+        "url": "http://www.ganitcharcha.com/feed/",
+        "categories": ["Recreational", "Higher Education"]
+    }, {
+        "url": "http://arkadiusz-jadczyk.eu/blog/feed/",
+        "categories": ["Research", "Secondary Education"]
+    }, {
+        "url": "http://pi2e.ch/blog/feed/",
+        "categories": ["Recreational"]
     }]
 }
