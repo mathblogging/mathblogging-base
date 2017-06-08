@@ -6,19 +6,19 @@ const pagewriter = require('./pagewriter.js').pagewriter;
 
 // helper functions
 
-const categoryToUrl = function(string){
+const categoryToUrl = function (string) {
   return string.toLowerCase().replace(/ |'|&/g, '_');
 }
 
-const urlToFilename = function(blogObject) {
+const urlToFilename = function (blogObject) {
   return './feeds/' + sanitize(blogObject.url) + '.xml';
 };
 
-const filterCategories = function (feedsjson){
+const filterCategories = function (feedsjson) {
   const categories = []
-  for (let blog of feedsjson.blogs){
-    for (let category of blog.categories){
-      if (!(categories.indexOf(category) > -1)){
+  for (let blog of feedsjson.blogs) {
+    for (let category of blog.categories) {
+      if (!(categories.indexOf(category) > -1)) {
         categories.push(category);
       }
     }
@@ -30,21 +30,21 @@ const filterCategories = function (feedsjson){
 const feedFilenamesForCategory = function (feedsjson, category) {
   const feedsFilenames = [];
   for (let blog of feedsjson.blogs) {
-    if (blog.categories.indexOf(category) > -1){
+    if (blog.categories.indexOf(category) > -1) {
       feedsFilenames.push(urlToFilename(blog));
     }
   }
   return feedsFilenames;
 };
 
-const createSidebar = function(categories){
+const createSidebar = function (categories) {
   let sidebar = '<nav id="categories">\n';
-  for (let category of categories){
+  for (let category of categories) {
     const url = categoryToUrl(category);
     sidebar += '<a href="{{ site.baseurl }}/' + url + '.html">' + category.replace(/&/g, '&amp;') + '</a>\n';
   }
   sidebar += '</nav>';
-  fs.writeFile('./mathblogging.org/_includes/sidebar-secondary.html', sidebar, function(err) {
+  fs.writeFile('./mathblogging.org/_includes/sidebar-secondary.html', sidebar, function (err) {
     'use strict';
     if (err) {
       console.log('error: couldn\'t write Sidebar');
@@ -54,18 +54,20 @@ const createSidebar = function(categories){
   });
 }
 
-const createBlogIndex = function(blogs){
+const createBlogIndex = function (blogs) {
   let blogIndex = '---\n' +
     'layout: page\n' +
     'title: Blog Index \n' +
     '---\n\n' +
     '<p>This page lists all feeds we aggregate for mathblogging.org. If yours is not listed or out-of-date, please <a href="mailto:mathblogging.network@gmail.com">write us an email</a> or send us a tweet <a href="https://twitter.com/mathblogging">@mathblogging</a>.</p>\n' +
     '<ul>\n';
-  for (let blog of blogs){
+  for (let blog of blogs) {
     blogIndex += '  <li>\n    <a href="' + blog.url + '" rel="nofollow"> ' + blog.url + '</a>\n  </li>\n';
   }
   blogIndex += '</ul>\n';
-  fs.writeFile('./mathblogging.org/blogindex.html', blogIndex, {mode:0o664}, function(err) {
+  fs.writeFile('./mathblogging.org/blogindex.html', blogIndex, {
+    mode: 0o664
+  }, function (err) {
     if (err) {
       console.log('error: couldn\'t write BlogIndex');
       return console.log(err);
@@ -74,7 +76,7 @@ const createBlogIndex = function(blogs){
   });
 }
 
-const mergeFeedsOfCategory = function(category, feedFilenames){
+const mergeFeedsOfCategory = function (category, feedFilenames) {
   const categoryFeed = new Feed({
     title: 'Mathblogging.org -- ' + category,
     description: 'Your one stop shop for mathematical blogs',
@@ -100,6 +102,6 @@ createSidebar(categories);
 createBlogIndex(FeedsJson.blogs);
 
 // merge feeds for each category and process
-for (let category of categories){
+for (let category of categories) {
   mergeFeedsOfCategory(category, feedFilenamesForCategory(FeedsJson, category))
 }
