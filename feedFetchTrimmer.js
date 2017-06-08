@@ -68,7 +68,8 @@ var feedFetchTrimmer = function(feedUrl, callback) {
         var itemOptions = {
           date: itemDate,
           title: item.title,
-          url: item.link,
+          // HACK for issue #43
+          url: item.link || item['atom:link']['@']['href'],
           description: null, // item.description || null
           author: item.author || null
         };
