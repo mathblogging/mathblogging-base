@@ -35,4 +35,3 @@ node_modules
 secret-config.json
 feeds
 mathblogging.org
-run.sh
