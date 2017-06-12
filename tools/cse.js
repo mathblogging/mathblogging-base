@@ -1,18 +1,13 @@
-var fs = require('fs');
-fs.readdir('./feeds/',function(err,files){
-    if(err) throw err;
-    files.forEach(function(file){
-      fs.readFile('./feeds/'+file, 'utf8', function(err, data) {
-        'use strict';
-        if (err) {
-          console.log(err);
-        }
-        // console.log(data);
-        var matches = /<link>(.*)<\/link>/.exec(data);
-        // console.log(matches);
-        if(console.log(matches[1]) !== 'http://github.com/dylang/node-rss'){
-          console.log(matches[1]);
-        }
-      });
-    });
- });
+const fs = require('fs');
+const path = require('path');
+
+const files = fs.readdirSync(path.resolve(__dirname,'../feeds/'));
+
+const printHomeURL = function (filename) {
+  const file = fs.readFileSync('./feeds/' + filename, 'utf8');
+  const matches = /<link>(.*)<\/link>/.exec(file);
+  if (matches && matches[1] !== 'http://github.com/dylang/node-rss') {
+    console.log(matches[1]);
+  }
+}
+files.forEach(printHomeURL);
