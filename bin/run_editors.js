@@ -1,2 +1,2 @@
-var editorpicks = require('../lib/editors.js');
+const editorpicks = require('../lib/editors.js');
 editorpicks();
