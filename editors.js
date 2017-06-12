@@ -29,7 +29,8 @@ module.exports = function() {
     title: 'Mathblogging.org -- Editors\' Picks',
     description: 'Your one stop shop for mathematical blogs',
     pubDate: new Date(),
-    link: 'http://mathblogging.org/',
+    feed_url: 'https://mathblogging.org/editors-picks.xml',
+    site_url: 'https://mathblogging.org/',
     // image: 'http://mathblogging.org/logo.png',
     copyright: 'No copyright asserted over individual posts; see original posts for copyright and/or licensing.',
     managingEditor: 'info@mathblogging.org (Mathblogging.org)'
