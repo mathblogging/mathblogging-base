@@ -33,8 +33,6 @@ This code base is a very simple "feed planet". It takes a bunch of feeds (organi
 * `bin/run_feedFetchTrimmer.js`: a wrapper for queuing feed aggregation
 * `bin/run.sh`:  simple script (assuming a bunch of things) for a cron job which runs all the things and pushes updates out to https://github.com/mathblogging/mathblogging.org.
 
-*
-
 ## How to re-use
 
 First, you need a simple spreadsheet with entries like
@@ -45,7 +43,7 @@ Then you'll need to remove all mathblogging specific data.
 
 For example,
 
-* `lib/editors.js`: change the array of Twitter handles to match your group of editors.
+* `lib/editors.js`: change the array of Twitter handles to match your group of editors and set up your Twitter app secrets.
 * Replace all references to `./mathblogging.org` to match the name of your Jekyll site (cloned into a subfolder).
 * Replace all other mentions of mathblogging.org
 
