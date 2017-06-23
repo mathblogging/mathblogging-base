@@ -1,15 +1,18 @@
 #!/bin/bash
+
+MBHOME=$HOME/code/mathblogging-base
+
 eval `ssh-agent`
 ssh-add $HOME/.ssh/mb_id_rsa
-cd $HOME/code/mathblogging-base && \
+cd $MBHOME && \
     echo "Clean Old Feeds" && \
-    find ../feeds -mtime +31 -type f -delete  && \
+    find feeds -mtime +31 -type f -delete  && \
     echo "Start FeedFetchTrimmer" && \
-    nodejs run_feedFetchTrimmer.js && \
+    node bin/run_feedFetchTrimmer.js && \
     echo "Start app.js" && \
-    nodejs ../lib/app.js && \
+    node lib/app.js && \
     echo "Do git commit and push" && \
-    cd $HOME/code/mathblogging-base/mathblogging.org && \
+    cd mathblogging.org && \
     git add -u && \
     git commit -m "`date`" && \
     git push
