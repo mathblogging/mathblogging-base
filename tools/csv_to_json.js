@@ -1,8 +1,6 @@
 const fs = require('fs');
 const path = require('path');
-const got = require('got');
-
-const csvUrl = 'https://docs.google.com/spreadsheets/d/1tDmRWouGtsN1VGg1_77Z8hnb7FeHkppqbGCfSsDq9wk/pub?gid=1891944288&single=true&output=csv';
+const https = require('https');
 
 const csv2json = function (csv) {
   const lines = csv.split('\n');
@@ -38,12 +36,18 @@ const csv2json = function (csv) {
   });
 }
 
-got(csvUrl)
-  .then(response => {
-    csv2json(response.body)
-    //=> '<!doctype html> ...'
-  })
-  .catch(error => {
-    console.log(error.response.body);
-    //=> 'Internal server error ...'
+// google sheets URL to public sheet (as CSV)
+const csvUrl = 'https://docs.google.com/spreadsheets/d/1tDmRWouGtsN1VGg1_77Z8hnb7FeHkppqbGCfSsDq9wk/pub?gid=1891944288&single=true&output=csv';
+
+const stream = https.get(csvUrl, (res) => {
+  const chunks = [];
+  res.on('data', (chunk) => {
+    chunks.push(chunk);
   });
+  res.on('end', () => {
+  csv2json(chunks.toString());
+})
+}).on('error', (error) => {
+  throw error;
+});
+
