@@ -9,13 +9,16 @@ const csv2json = function (csv) {
   const feedsJson = {
     blogs: []
   };
+  let wgetList = '';
 
-  for (let line of lines) {
+  for (let [index, line] of lines.entries()) {
     var cells = line.split(',');
     var entry = {
+      id: index.toString(),
       url: cells[0],
-      categories: []
+      categories: ['Posts']
     };
+    wgetList += entry.url + '\n';
     for (let c = 1; c < 4; c++) {
       const category = cells[c].trim();
       if (category !== "" && entry.categories.indexOf(category) < 0) entry.categories.push(category);
@@ -24,6 +27,11 @@ const csv2json = function (csv) {
   }
 
   fs.writeFile(path.resolve(__dirname, '../data/feeds.json'), JSON.stringify(feedsJson, null, 4), function (e) {
+    if (e) {
+      throw e;
+    }
+  });
+  fs.writeFile(path.resolve(__dirname, '../data/wgetList.txt'), wgetList, function (e) {
     if (e) {
       throw e;
     }
@@ -39,4 +47,3 @@ got(csvUrl)
     console.log(error.response.body);
     //=> 'Internal server error ...'
   });
-
