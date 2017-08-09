@@ -45,9 +45,8 @@ const stream = https.get(csvUrl, (res) => {
     chunks.push(chunk);
   });
   res.on('end', () => {
-  csv2json(chunks.toString());
-})
+    csv2json(chunks.join(''));
+  })
 }).on('error', (error) => {
   throw error;
 });
-
