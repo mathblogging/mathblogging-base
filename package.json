@@ -1,6 +1,6 @@
 {
   "name": "mathblogging-base",
-  "version": "3.1.0",
+  "version": "3.1.1",
   "description": "Building mathblogging.org",
   "keywords": [
     "blog",
@@ -21,9 +21,9 @@
     "url": "git://github.com/mathblogging/mathblogging-base.git"
   },
   "dependencies": {
-    "feedparser": "^1.0.1",
-    "rss": "^1.1.1",
-    "twit": "^2.1.0"
+    "feedparser": "~1",
+    "rss": "~1",
+    "twit": "~2"
   },
   "main": "app.js",
   "eslintConfig": {
