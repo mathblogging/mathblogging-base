@@ -35,3 +35,4 @@ node_modules
 secret-config.json
 feeds
 mathblogging.org
+ci-secret.sh
