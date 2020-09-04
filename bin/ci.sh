@@ -10,4 +10,4 @@ sh ./tools/wgetter.sh
 echo "Generate entries.json"
 node ./lib/generateEntries.js
 echo "Run app.js"
-node ./lib/app.js $1
+consumer_key=$consumer_key consumer_secret=$consumer_secret access_token=$access_token access_token_secret=$access_token_secret node ./lib/app.js $1
