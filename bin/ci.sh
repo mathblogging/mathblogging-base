@@ -1,5 +1,6 @@
 #!/bin/bash
 
+mkdir -p ./data
 echo "Fetch csv"
 wget -O data.csv "https://docs.google.com/spreadsheets/d/e/2PACX-1vTohVihVKYUFb7REtchf6PcoMejdrgEj4oTAphUhSUeREOau9QU8n1wGKg9cWNSmxMhMP1D3WKeyiw9/pub?gid=1891944288&single=true&output=csv"
 echo "Generate JSON"
